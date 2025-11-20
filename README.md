@@ -10,3 +10,5 @@ How to commit:
 7. run 'git commit -m "your commit message here"'
 8. run 'git push'
 - if 'git push' is not working then 'git pull' first.
+
+I Know how to connect Netbeans to oracle sql now. - Curien
