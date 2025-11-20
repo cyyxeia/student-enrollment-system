@@ -8,14 +8,14 @@ package com.mycompany.student_enrollment_system;
  *
  * @author ASUS
  */
-public class playground1 extends javax.swing.JFrame {
+public class Loginpage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(playground1.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Loginpage.class.getName());
 
     /**
      * Creates new form playground1
      */
-    public playground1() {
+    public Loginpage() {
         initComponents();
     }
 
@@ -206,7 +206,7 @@ public class playground1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new playground1().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Loginpage().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
