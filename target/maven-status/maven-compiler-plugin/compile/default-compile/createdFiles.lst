@@ -1,4 +1,5 @@
 com\mycompany\student_enrollment_system\Student_Enrollment_System.class
-com\mycompany\student_enrollment_system\playground1.class
+com\mycompany\student_enrollment_system\Loginpage.class
+com\mycompany\student_enrollment_system\SchedulePage.class
 com\mycompany\student_enrollment_system\homePage.class
 com\mycompany\student_enrollment_system\ImagePanel.class
