@@ -51,8 +51,9 @@ public class Login extends javax.swing.JFrame {
         bg.setLayout(null);
 
         PLM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/loginbg.jpg"))); // NOI18N
+        PLM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         bg.add(PLM);
-        PLM.setBounds(760, 150, 370, 450);
+        PLM.setBounds(760, 150, 372, 450);
 
         LogIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LogIn.setLayout(null);
