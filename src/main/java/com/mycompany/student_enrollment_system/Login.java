@@ -30,6 +30,7 @@ public class Login extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         bg = new javax.swing.JPanel();
+        PLM = new javax.swing.JLabel();
         LogIn = new javax.swing.JPanel();
         UniveristyName = new javax.swing.JLabel();
         UniveristyName1 = new javax.swing.JLabel();
@@ -39,37 +40,32 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         Username = new javax.swing.JTextField();
         LOGIN = new javax.swing.JButton();
-        UniveristyName2 = new javax.swing.JLabel();
-        PLM = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bg.setLayout(null);
 
+        PLM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/loginbg.jpg"))); // NOI18N
+        bg.add(PLM);
+        PLM.setBounds(760, 150, 370, 450);
+
         LogIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        LogIn.setOpaque(false);
-        LogIn.setLayout(new java.awt.GridBagLayout());
+        LogIn.setLayout(null);
 
-        UniveristyName.setFont(new java.awt.Font("Consolas", 1, 22)); // NOI18N
+        UniveristyName.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         UniveristyName.setText("PAMANTASAN NG LUNGSOD");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(19, 62, 0, 0);
-        LogIn.add(UniveristyName, gridBagConstraints);
+        LogIn.add(UniveristyName);
+        UniveristyName.setBounds(50, 110, 290, 20);
 
-        UniveristyName1.setFont(new java.awt.Font("Consolas", 1, 22)); // NOI18N
+        UniveristyName1.setFont(new java.awt.Font("Georgia", 1, 17)); // NOI18N
         UniveristyName1.setText("NG MAYNILA");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 119, 0, 0);
-        LogIn.add(UniveristyName1, gridBagConstraints);
+        LogIn.add(UniveristyName1);
+        UniveristyName1.setBounds(120, 130, 122, 20);
 
         UNPW.setOpaque(false);
 
@@ -80,10 +76,11 @@ public class Login extends javax.swing.JFrame {
         User_name.setText("Username");
 
         jPasswordField1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jPasswordField1.addActionListener(this::jPasswordField1ActionPerformed);
 
+        Username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Username.addActionListener(this::UsernameActionPerformed);
 
         LOGIN.setBackground(new java.awt.Color(102, 204, 255));
@@ -91,6 +88,15 @@ public class Login extends javax.swing.JFrame {
         LOGIN.setForeground(new java.awt.Color(255, 255, 255));
         LOGIN.setText("LOGIN");
         LOGIN.addActionListener(this::LOGINActionPerformed);
+
+        jButton1.setBackground(new java.awt.Color(102, 255, 102));
+        jButton1.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 51, 51));
+        jButton1.setText("LOGIN");
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setHideActionText(true);
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout UNPWLayout = new javax.swing.GroupLayout(UNPW);
         UNPW.setLayout(UNPWLayout);
@@ -104,14 +110,15 @@ public class Login extends javax.swing.JFrame {
             .addGroup(UNPWLayout.createSequentialGroup()
                 .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(UNPWLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(User_name))
-                    .addGroup(UNPWLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Password))
-                    .addGroup(UNPWLayout.createSequentialGroup()
                         .addGap(87, 87, 87)
-                        .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(UNPWLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(User_name)
+                            .addComponent(Password))))
                 .addGap(0, 84, Short.MAX_VALUE))
         );
         UNPWLayout.setVerticalGroup(
@@ -125,40 +132,54 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(Password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 84;
-        gridBagConstraints.ipady = 41;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(23, 39, 23, 40);
-        LogIn.add(UNPW, gridBagConstraints);
+        LogIn.add(UNPW);
+        UNPW.setBounds(39, 153, 291, 421);
 
-        UniveristyName2.setFont(new java.awt.Font("Consolas", 1, 28)); // NOI18N
-        UniveristyName2.setText("LOGIN");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 141, 0, 0);
-        LogIn.add(UniveristyName2, gridBagConstraints);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plm-logo (1).png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        LogIn.add(jLabel2);
+        jLabel2.setBounds(140, 20, 80, 80);
 
         bg.add(LogIn);
-        LogIn.setBounds(640, 130, 370, 450);
-
-        PLM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/loginbg.jpg"))); // NOI18N
-        bg.add(PLM);
-        PLM.setBounds(640, 130, 370, 447);
+        LogIn.setBounds(390, 150, 370, 450);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmbg_1 (1).png"))); // NOI18N
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bg.add(jLabel1);
-        jLabel1.setBounds(-20, 0, 1570, 896);
+        jLabel1.setBounds(0, 0, 1572, 896);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plm-logo (1).png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 122, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        bg.add(jPanel1);
+        jPanel1.setBounds(880, 260, 122, 100);
 
         getContentPane().add(bg, java.awt.BorderLayout.CENTER);
 
@@ -176,6 +197,10 @@ public class Login extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,11 +235,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel UNPW;
     private javax.swing.JLabel UniveristyName;
     private javax.swing.JLabel UniveristyName1;
-    private javax.swing.JLabel UniveristyName2;
     private javax.swing.JLabel User_name;
     private javax.swing.JTextField Username;
     private javax.swing.JPanel bg;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }
