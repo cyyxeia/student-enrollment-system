@@ -2,20 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.student_enrollment_system;
+package com.mycompany.student_enrollment_system.images;
 
 /**
  *
  * @author ASUS
  */
-public class SchedulePage extends javax.swing.JFrame {
+public class LoginPage22 extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SchedulePage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginPage22.class.getName());
 
     /**
-     * Creates new form SchedulePage
+     * Creates new form LoginPage22
      */
-    public SchedulePage() {
+    public LoginPage22() {
         initComponents();
     }
 
@@ -34,11 +34,11 @@ public class SchedulePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1448, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -66,7 +66,7 @@ public class SchedulePage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new SchedulePage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new LoginPage22().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
