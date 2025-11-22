@@ -8,14 +8,14 @@ package com.mycompany.student_enrollment_system;
  *
  * @author Lenovo x270
  */
-public class homePage extends javax.swing.JFrame {
+public class homePageRevision extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(homePage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(homePageRevision.class.getName());
 
     /**
      * Creates new form homePage
      */
-    public homePage() {
+    public homePageRevision() {
         initComponents();
         student_names.insertItemAt("", 0);
         student_names.setSelectedIndex(0);
@@ -401,7 +401,7 @@ public class homePage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new homePage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new homePageRevision().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
