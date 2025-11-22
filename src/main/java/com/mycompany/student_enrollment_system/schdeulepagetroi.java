@@ -8,14 +8,14 @@ package com.mycompany.student_enrollment_system;
  *
  * @author Lenovo x270
  */
-public class homePage extends javax.swing.JFrame {
+public class schdeulepagetroi extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(homePage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(schdeulepagetroi.class.getName());
 
     /**
      * Creates new form homePage
      */
-    public homePage() {
+    public schdeulepagetroi() {
         initComponents();
         student_names.insertItemAt("", 0);
         student_names.setSelectedIndex(0);
@@ -47,6 +47,7 @@ public class homePage extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
         studentInfoWindow = new javax.swing.JPanel();
         studentInfoandIcon = new javax.swing.JPanel();
@@ -74,7 +75,12 @@ public class homePage extends javax.swing.JFrame {
         scheduleCard = new javax.swing.JPanel();
         basicInfoText = new javax.swing.JLabel();
         studentData1 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         jButton4.setText("jButton4");
 
@@ -118,6 +124,10 @@ public class homePage extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton3.setText("Enrollment");
         buttons.add(jButton3);
+
+        jButton9.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jButton9.setText("View Grades");
+        buttons.add(jButton9);
 
         headerPanel.add(buttons, java.awt.BorderLayout.PAGE_END);
 
@@ -339,20 +349,83 @@ public class homePage extends javax.swing.JFrame {
         scheduleCard.setForeground(new java.awt.Color(255, 255, 255));
         scheduleCard.setLayout(new java.awt.BorderLayout());
 
-        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
         basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        basicInfoText.setText("BASIC INFORMATION");
+        basicInfoText.setText("Schedule");
         basicInfoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scheduleCard.add(basicInfoText, java.awt.BorderLayout.NORTH);
 
         studentData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 10, 10, 10));
         studentData1.setLayout(new java.awt.BorderLayout());
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel4.setPreferredSize(new java.awt.Dimension(100, 100));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-        studentData1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 230));
+
+        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", null, null, null, null, null, null},
+                {"2", null, null, null, null, null, null},
+                {"3", null, null, null, null, null, null},
+                {"4", null, null, null, null, null, null},
+                {"5", null, null, null, null, null, null},
+                {"6", null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setColumnSelectionAllowed(true);
+        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
+        jTable1.setMinimumSize(new java.awt.Dimension(75, 140));
+        jTable1.setPreferredSize(new java.awt.Dimension(275, 250));
+        jTable1.setRequestFocusEnabled(false);
+        jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setShowGrid(false);
+        jTable1.setShowVerticalLines(true);
+        jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        studentData1.add(jScrollPane1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setPreferredSize(new java.awt.Dimension(10, 100));
+
+        jButton6.setBackground(new java.awt.Color(102, 255, 102));
+        jButton6.setText("Insert");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        jButton6.addActionListener(this::jButton6ActionPerformed);
+        jPanel3.add(jButton6);
+
+        jButton7.setBackground(new java.awt.Color(102, 255, 204));
+        jButton7.setText("Update");
+        jPanel3.add(jButton7);
+
+        jButton8.setBackground(new java.awt.Color(255, 0, 0));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Delete");
+        jPanel3.add(jButton8);
+
+        studentData1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
         scheduleCard.add(studentData1, java.awt.BorderLayout.CENTER);
 
@@ -379,6 +452,14 @@ public class homePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_yearLevelActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -401,7 +482,7 @@ public class homePage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new homePage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new schdeulepagetroi().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -416,6 +497,10 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -425,12 +510,14 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JLabel rightlogo;
