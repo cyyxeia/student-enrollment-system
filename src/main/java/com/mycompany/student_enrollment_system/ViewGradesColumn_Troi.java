@@ -8,14 +8,14 @@ package com.mycompany.student_enrollment_system;
  *
  * @author Lenovo x270
  */
-public class schdeulepagetroi extends javax.swing.JFrame {
+public class ViewGradesColumn_Troi extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(schdeulepagetroi.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewGradesColumn_Troi.class.getName());
 
     /**
      * Creates new form homePage
      */
-    public schdeulepagetroi() {
+    public ViewGradesColumn_Troi() {
         initComponents();
         student_names.insertItemAt("", 0);
         student_names.setSelectedIndex(0);
@@ -38,6 +38,7 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        icon = new javax.swing.JLabel();
         headerPanel = new javax.swing.JPanel();
         school_name = new javax.swing.JPanel();
         leftlogo = new javax.swing.JLabel();
@@ -52,7 +53,6 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         studentInfoWindow = new javax.swing.JPanel();
         studentInfoandIcon = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        icon = new javax.swing.JLabel();
         studentData = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -78,13 +78,19 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
 
         jButton4.setText("jButton4");
 
         jButton5.setText("jButton5");
+
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/defaulticon.png"))); // NOI18N
+        icon.setFocusable(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,7 +132,8 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         buttons.add(jButton3);
 
         jButton9.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jButton9.setText("View Grades");
+        jButton9.setText("View Grade");
+        jButton9.addActionListener(this::jButton9ActionPerformed);
         buttons.add(jButton9);
 
         headerPanel.add(buttons, java.awt.BorderLayout.PAGE_END);
@@ -154,13 +161,6 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 90);
         studentInfoandIcon.add(jLabel2, gridBagConstraints);
-
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/defaulticon.png"))); // NOI18N
-        icon.setFocusable(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
-        studentInfoandIcon.add(icon, gridBagConstraints);
 
         studentInfoWindow.add(studentInfoandIcon, java.awt.BorderLayout.NORTH);
 
@@ -351,9 +351,13 @@ public class schdeulepagetroi extends javax.swing.JFrame {
 
         basicInfoText.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
         basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        basicInfoText.setText("Schedule");
+        basicInfoText.setText("Remark");
         basicInfoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        basicInfoText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        basicInfoText.setPreferredSize(new java.awt.Dimension(150, 50));
+        basicInfoText.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         scheduleCard.add(basicInfoText, java.awt.BorderLayout.NORTH);
+        basicInfoText.getAccessibleContext().setAccessibleParent(null);
 
         studentData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 10, 10, 10));
         studentData1.setLayout(new java.awt.BorderLayout());
@@ -363,48 +367,52 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null, null, null, null, null, null},
-                {"2", null, null, null, null, null, null},
-                {"3", null, null, null, null, null, null},
-                {"4", null, null, null, null, null, null},
-                {"5", null, null, null, null, null, null},
-                {"6", null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {"Data Structures and Algorithms (Lec)", "ICC-121-3",  new Integer(3),  new Float(1.75), null, "Passed"},
+                {"National Service Program (ROTC)", "NSTP-1",  new Integer(2),  new Float(1.0), null, "Passed"},
+                {"Discrete Structures (Lec)", "ICC-212-1",  new Integer(3),  new Float(1.25), null, "Passed"},
+                {"", null, null, null, null, null},
+                {"", null, null, null, null, null},
+                {"", null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+                "Subject Title", "Subject Code", "Units", "Grade", "Completion Grade", "Remarks"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Object.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
         jTable1.setColumnSelectionAllowed(true);
         jTable1.setGridColor(new java.awt.Color(0, 0, 0));
         jTable1.setMinimumSize(new java.awt.Dimension(75, 140));
-        jTable1.setPreferredSize(new java.awt.Dimension(275, 250));
+        jTable1.setPreferredSize(new java.awt.Dimension(150, 250));
         jTable1.setRequestFocusEnabled(false);
+        jTable1.setRowHeight(35);
+        jTable1.setRowMargin(10);
         jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setShowGrid(false);
+        jTable1.setShowGrid(true);
         jTable1.setShowVerticalLines(true);
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        studentData1.add(jScrollPane1, java.awt.BorderLayout.PAGE_START);
+        studentData1.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(10, 100));
+
+        jLabel3.setText("------------------------ No Entry Follows -------------------------------------------");
+
+        jLabel5.setText("GWA: ( Note: Float value (3,2) )");
+
+        jButton8.setBackground(new java.awt.Color(255, 0, 0));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Delete");
+        jButton8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jButton6.setBackground(new java.awt.Color(102, 255, 102));
         jButton6.setText("Insert");
@@ -414,18 +422,49 @@ public class schdeulepagetroi extends javax.swing.JFrame {
             }
         });
         jButton6.addActionListener(this::jButton6ActionPerformed);
-        jPanel3.add(jButton6);
 
         jButton7.setBackground(new java.awt.Color(102, 255, 204));
         jButton7.setText("Update");
-        jPanel3.add(jButton7);
+        jButton7.addActionListener(this::jButton7ActionPerformed);
 
-        jButton8.setBackground(new java.awt.Color(255, 0, 0));
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Delete");
-        jPanel3.add(jButton8);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel5)
+                        .addGap(123, 123, 123)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton6)
+                            .addComponent(jButton7)
+                            .addComponent(jButton8)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
 
         studentData1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+        studentData1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
         scheduleCard.add(studentData1, java.awt.BorderLayout.CENTER);
 
@@ -460,6 +499,14 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6MouseClicked
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -482,7 +529,7 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new schdeulepagetroi().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ViewGradesColumn_Troi().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -505,12 +552,15 @@ public class schdeulepagetroi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton4;
