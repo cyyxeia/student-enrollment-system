@@ -50,7 +50,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="3"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-94,0,0,5,77"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,9,0,0,5,77"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -181,7 +181,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Consolas" size="16" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="View Grade"/>
+                <Property name="text" type="java.lang.String" value="View Grades"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
@@ -607,17 +607,8 @@
                     <LineBorder/>
                   </Border>
                 </Property>
-                <Property name="horizontalTextPosition" type="int" value="0"/>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[150, 50]"/>
-                </Property>
-                <Property name="verticalTextPosition" type="int" value="1"/>
+                <Property name="horizontalTextPosition" type="int" value="4"/>
               </Properties>
-              <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="null"/>
-                </Property>
-              </AccessibilityProperties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                   <BorderConstraints direction="North"/>
@@ -667,51 +658,19 @@
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="6" rowCount="7">
                             <Column editable="true" title="Subject Title" type="java.lang.String">
-                              <Data value="Data Structures and Algorithms (Lec)"/>
-                              <Data value="National Service Program (ROTC)"/>
-                              <Data value="Discrete Structures (Lec)"/>
+                              <Data value=" "/>
                               <Data value=""/>
                               <Data value=""/>
                               <Data value=""/>
+                              <Data value=""/>
+                              <Data value=""/>
                               <Data value="null"/>
                             </Column>
-                            <Column editable="true" title="Subject Code" type="java.lang.String">
-                              <Data value="ICC-121-3"/>
-                              <Data value="NSTP-1"/>
-                              <Data value="ICC-212-1"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
-                            <Column editable="true" title="Units" type="java.lang.Integer">
-                              <Data value="3"/>
-                              <Data value="2"/>
-                              <Data value="3"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
-                            <Column editable="true" title="Grade" type="java.lang.Float">
-                              <Data value="1.75"/>
-                              <Data value="1.0"/>
-                              <Data value="1.25"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
-                            <Column editable="true" title="Completion Grade" type="java.lang.Object"/>
-                            <Column editable="true" title="Remarks" type="java.lang.String">
-                              <Data value="Passed"/>
-                              <Data value="Passed"/>
-                              <Data value="Passed"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
+                            <Column editable="true" title="Subject Code" type="java.lang.String"/>
+                            <Column editable="true" title="Units" type="java.lang.Integer"/>
+                            <Column editable="true" title="Grade" type="java.lang.Float"/>
+                            <Column editable="true" title="Completion Grade" type="java.lang.Float"/>
+                            <Column editable="true" title="Remark" type="java.lang.String"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -760,11 +719,11 @@
                         </Property>
                         <Property name="requestFocusEnabled" type="boolean" value="false"/>
                         <Property name="rowHeight" type="int" value="35"/>
-                        <Property name="rowMargin" type="int" value="10"/>
                         <Property name="selectionForeground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="showGrid" type="boolean" value="true"/>
+                        <Property name="showHorizontalLines" type="boolean" value="true"/>
                         <Property name="showVerticalLines" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -791,71 +750,48 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="313" max="-2" attributes="0"/>
+                                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jButton7" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="21" pref="333" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="45" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="------------------------ No Entry Follows -------------------------------------------"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel5">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="GWA: ( Note: Float value (3,2) )"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jButton8">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="0" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Delete"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="jButton6">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -878,6 +814,30 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton8">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Delete"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="----------------------------------- NO ENTRY FOLLOWS ---------------------------------------------"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="GWA : (Float Values (3,2) )"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
