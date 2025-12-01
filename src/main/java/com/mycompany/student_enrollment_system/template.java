@@ -8,19 +8,11 @@ package com.mycompany.student_enrollment_system;
  *
  * @author Lenovo x270
  */
-public class homePage extends javax.swing.JFrame {
+public class template extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(homePage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(template.class.getName());
 
-    /**
-     * Creates new form homePage
-     */
-    public homePage() {
-        initComponents();
-        student_names.insertItemAt("", 0);
-        student_names.setSelectedIndex(0);
-        
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,34 +39,8 @@ public class homePage extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
-        studentInfoWindow = new javax.swing.JPanel();
-        studentInfoandIcon = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        icon = new javax.swing.JLabel();
-        studentData = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        spacer = new javax.swing.JLabel();
-        spacer2 = new javax.swing.JLabel();
-        yearLevel = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        LEGENDS = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        student_names = new javax.swing.JComboBox<>();
-        searchButton = new javax.swing.JButton();
-        clearButton = new javax.swing.JButton();
-        scheduleCard = new javax.swing.JPanel();
-        basicInfoText = new javax.swing.JLabel();
-        studentData1 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
 
         jButton4.setText("jButton4");
 
@@ -113,251 +79,25 @@ public class homePage extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton2.setText("Schedule");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
         buttons.add(jButton2);
 
         jButton3.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton3.setText("Enrollment");
         buttons.add(jButton3);
 
+        jButton6.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jButton6.setText("View Grades");
+        jButton6.addActionListener(this::jButton6ActionPerformed);
+        buttons.add(jButton6);
+
         headerPanel.add(buttons, java.awt.BorderLayout.PAGE_END);
 
         getContentPane().add(headerPanel, java.awt.BorderLayout.NORTH);
         headerPanel.getAccessibleContext().setAccessibleName("");
 
+        mainContentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         mainContentPanel.setLayout(new java.awt.BorderLayout());
-
-        studentInfoWindow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        studentInfoWindow.setOpaque(false);
-        studentInfoWindow.setPreferredSize(new java.awt.Dimension(455, 100));
-        studentInfoWindow.setRequestFocusEnabled(false);
-        studentInfoWindow.setLayout(new java.awt.BorderLayout());
-
-        studentInfoandIcon.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 15, 5, 1));
-        studentInfoandIcon.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        studentInfoandIcon.setLayout(new java.awt.GridBagLayout());
-
-        jLabel2.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Student Information:");
-        jLabel2.setFocusable(false);
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 90);
-        studentInfoandIcon.add(jLabel2, gridBagConstraints);
-
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/defaulticon.png"))); // NOI18N
-        icon.setFocusable(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
-        studentInfoandIcon.add(icon, gridBagConstraints);
-
-        studentInfoWindow.add(studentInfoandIcon, java.awt.BorderLayout.NORTH);
-
-        studentData.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 10, 10, 10));
-        studentData.setLayout(new java.awt.GridBagLayout());
-
-        jLabel1.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel1.setText("Student Name:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(jLabel1, gridBagConstraints);
-
-        jLabel4.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel4.setText("Block:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(jLabel4, gridBagConstraints);
-
-        jLabel6.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel6.setText("Semester:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(jLabel6, gridBagConstraints);
-
-        jLabel8.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel8.setText("School Year:");
-        jLabel8.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(jLabel8, gridBagConstraints);
-
-        jLabel10.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel10.setText("Status:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(jLabel10, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
-        studentData.add(spacer, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
-        studentData.add(spacer2, gridBagConstraints);
-
-        yearLevel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        yearLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select School Year-", "2024 - 2025", "2023 - 2024", "2022 - 2023", "Veterans", " " }));
-        yearLevel.addActionListener(this::yearLevelActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 35, 25);
-        studentData.add(yearLevel, gridBagConstraints);
-        yearLevel.getAccessibleContext().setAccessibleName("");
-
-        status.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton1.setText("Regular");
-        jRadioButton1.addActionListener(this::jRadioButton1ActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(-30, 0, 0, 135);
-        studentData.add(jRadioButton1, gridBagConstraints);
-
-        status.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton2.setText("Irregular");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(-35, 120, 0, 70);
-        studentData.add(jRadioButton2, gridBagConstraints);
-
-        status.add(LEGENDS);
-        LEGENDS.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        LEGENDS.setForeground(new java.awt.Color(255, 215, 0));
-        LEGENDS.setText("Legends");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(-80, 0, 0, 150);
-        studentData.add(LEGENDS, gridBagConstraints);
-
-        jComboBox1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jComboBox1.setMaximumRowCount(2);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Block-", "Block 1", "Block 2", "Block 3", "Block 4", "Block 5", "Block 6" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 30, 140);
-        studentData.add(jComboBox1, gridBagConstraints);
-
-        semester.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton4.setText("1st Sem");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 210);
-        studentData.add(jRadioButton4, gridBagConstraints);
-
-        semester.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton5.setText("2nd Sem");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(-25, 20, 0, 20);
-        studentData.add(jRadioButton5, gridBagConstraints);
-
-        semester.add(jRadioButton6);
-        jRadioButton6.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton6.setText("Summer");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 200, 0, 0);
-        studentData.add(jRadioButton6, gridBagConstraints);
-
-        student_names.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        student_names.setMaximumRowCount(5);
-        student_names.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Student-", "Cyrus Kent B. De Guzman", "John Devonaire L. Garcia", "Nheil Jewel F. Blanche", "Troi Isaac V. Limin", "JP \"The Legend\" Medalla", "Curien Del Rosario", "Lorejane Dela Cruz", " " }));
-        student_names.addActionListener(this::student_namesActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
-        studentData.add(student_names, gridBagConstraints);
-
-        searchButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        searchButton.setText("Search");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.insets = new java.awt.Insets(0, -200, 50, 0);
-        studentData.add(searchButton, gridBagConstraints);
-
-        clearButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        clearButton.setText("Clear");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.insets = new java.awt.Insets(0, 50, 50, 0);
-        studentData.add(clearButton, gridBagConstraints);
-
-        studentInfoWindow.add(studentData, java.awt.BorderLayout.CENTER);
-
-        mainContentPanel.add(studentInfoWindow, java.awt.BorderLayout.WEST);
-
-        scheduleCard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        scheduleCard.setForeground(new java.awt.Color(255, 255, 255));
-        scheduleCard.setLayout(new java.awt.BorderLayout());
-
-        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
-        basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        basicInfoText.setText("BASIC INFORMATION");
-        basicInfoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        scheduleCard.add(basicInfoText, java.awt.BorderLayout.NORTH);
-
-        studentData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 10, 10, 10));
-        studentData1.setLayout(new java.awt.BorderLayout());
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel4.setPreferredSize(new java.awt.Dimension(100, 100));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-        studentData1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
-
-        scheduleCard.add(studentData1, java.awt.BorderLayout.CENTER);
-
-        mainContentPanel.add(scheduleCard, java.awt.BorderLayout.CENTER);
-
         getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -367,17 +107,13 @@ public class homePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void student_namesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_namesActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_student_namesActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void yearLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearLevelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_yearLevelActionPerformed
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -401,52 +137,26 @@ public class homePage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new homePage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new template().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton LEGENDS;
-    private javax.swing.JLabel basicInfoText;
     private javax.swing.JPanel buttons;
-    private javax.swing.JButton clearButton;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JLabel icon;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JLabel rightlogo;
-    private javax.swing.JPanel scheduleCard;
     private javax.swing.JLabel schoolName;
     private javax.swing.JPanel school_name;
-    private javax.swing.JButton searchButton;
     private javax.swing.ButtonGroup semester;
-    private javax.swing.JLabel spacer;
-    private javax.swing.JLabel spacer2;
     private javax.swing.ButtonGroup status;
-    private javax.swing.JPanel studentData;
-    private javax.swing.JPanel studentData1;
-    private javax.swing.JPanel studentInfoWindow;
-    private javax.swing.JPanel studentInfoandIcon;
-    private javax.swing.JComboBox<String> student_names;
-    private javax.swing.JComboBox<String> yearLevel;
     // End of variables declaration//GEN-END:variables
 }

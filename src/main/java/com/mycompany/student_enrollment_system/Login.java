@@ -27,7 +27,6 @@ public class Login extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         bg = new javax.swing.JPanel();
         PLM = new javax.swing.JLabel();
@@ -146,7 +145,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plm-logo (1).png"))); // NOI18N
         jLabel2.setText("jLabel2");
         LogIn.add(jLabel2);
-        jLabel2.setBounds(140, 20, 80, 80);
+        jLabel2.setBounds(140, 20, 80, 16);
 
         bg.add(LogIn);
         LogIn.setBounds(390, 150, 370, 450);
@@ -154,7 +153,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmbg_1 (1).png"))); // NOI18N
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bg.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1572, 896);
+        jLabel1.setBounds(0, 0, 0, 0);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plm-logo (1).png"))); // NOI18N
 
