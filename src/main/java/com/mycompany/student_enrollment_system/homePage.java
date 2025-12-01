@@ -48,6 +48,8 @@ public class homePage extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
         studentInfoWindow = new javax.swing.JPanel();
         studentInfoandIcon = new javax.swing.JPanel();
@@ -111,7 +113,7 @@ public class homePage extends javax.swing.JFrame {
         buttons.add(jButton1);
 
         jButton2.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jButton2.setText("Schedule");
+        jButton2.setText("Student");
         jButton2.addActionListener(this::jButton2ActionPerformed);
         buttons.add(jButton2);
 
@@ -120,9 +122,19 @@ public class homePage extends javax.swing.JFrame {
         buttons.add(jButton3);
 
         jButton6.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jButton6.setText("View Grades");
+        jButton6.setText("Subject & Grade");
         jButton6.addActionListener(this::jButton6ActionPerformed);
         buttons.add(jButton6);
+
+        jButton7.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jButton7.setText("College & Course");
+        jButton7.addActionListener(this::jButton7ActionPerformed);
+        buttons.add(jButton7);
+
+        jButton8.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jButton8.setText("Faculty");
+        jButton8.addActionListener(this::jButton8ActionPerformed);
+        buttons.add(jButton8);
 
         headerPanel.add(buttons, java.awt.BorderLayout.PAGE_END);
 
@@ -382,6 +394,14 @@ public class homePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,6 +441,8 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

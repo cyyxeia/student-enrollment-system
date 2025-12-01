@@ -8,9 +8,9 @@ package com.mycompany.student_enrollment_system;
  *
  * @author Lenovo x270
  */
-public class template extends javax.swing.JFrame {
+public class subject_grade extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(template.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(subject_grade.class.getName());
 
    
 
@@ -22,7 +22,6 @@ public class template extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         status = new javax.swing.ButtonGroup();
         semester = new javax.swing.ButtonGroup();
@@ -141,12 +140,11 @@ public class template extends javax.swing.JFrame {
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable1.setPreferredSize(new java.awt.Dimension(1000, 800));
         jTable1.setShowGrid(true);
-        jTable1.setShowVerticalLines(true);
         jScrollPane1.setViewportView(jTable1);
 
         jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton1.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton1.setText("ADD");
@@ -219,7 +217,7 @@ public class template extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new template().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new subject_grade().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
