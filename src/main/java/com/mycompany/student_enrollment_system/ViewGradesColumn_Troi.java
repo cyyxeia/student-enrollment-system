@@ -78,11 +78,11 @@ public class ViewGradesColumn_Troi extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         jButton4.setText("jButton4");
@@ -132,7 +132,7 @@ public class ViewGradesColumn_Troi extends javax.swing.JFrame {
         buttons.add(jButton3);
 
         jButton9.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jButton9.setText("View Grade");
+        jButton9.setText("View Grades");
         jButton9.addActionListener(this::jButton9ActionPerformed);
         buttons.add(jButton9);
 
@@ -353,11 +353,8 @@ public class ViewGradesColumn_Troi extends javax.swing.JFrame {
         basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         basicInfoText.setText("Remark");
         basicInfoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        basicInfoText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        basicInfoText.setPreferredSize(new java.awt.Dimension(150, 50));
-        basicInfoText.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        basicInfoText.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         scheduleCard.add(basicInfoText, java.awt.BorderLayout.NORTH);
-        basicInfoText.getAccessibleContext().setAccessibleParent(null);
 
         studentData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 10, 10, 10));
         studentData1.setLayout(new java.awt.BorderLayout());
@@ -367,20 +364,20 @@ public class ViewGradesColumn_Troi extends javax.swing.JFrame {
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Data Structures and Algorithms (Lec)", "ICC-121-3",  new Integer(3),  new Float(1.75), null, "Passed"},
-                {"National Service Program (ROTC)", "NSTP-1",  new Integer(2),  new Float(1.0), null, "Passed"},
-                {"Discrete Structures (Lec)", "ICC-212-1",  new Integer(3),  new Float(1.25), null, "Passed"},
+                {" ", null, null, null, null, null},
+                {"", null, null, null, null, null},
+                {"", null, null, null, null, null},
                 {"", null, null, null, null, null},
                 {"", null, null, null, null, null},
                 {"", null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Subject Title", "Subject Code", "Units", "Grade", "Completion Grade", "Remarks"
+                "Subject Title", "Subject Code", "Units", "Grade", "Completion Grade", "Remark"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Object.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -393,9 +390,9 @@ public class ViewGradesColumn_Troi extends javax.swing.JFrame {
         jTable1.setPreferredSize(new java.awt.Dimension(150, 250));
         jTable1.setRequestFocusEnabled(false);
         jTable1.setRowHeight(35);
-        jTable1.setRowMargin(10);
         jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jTable1.setShowGrid(true);
+        jTable1.setShowHorizontalLines(true);
         jTable1.setShowVerticalLines(true);
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -404,15 +401,6 @@ public class ViewGradesColumn_Troi extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(10, 100));
-
-        jLabel3.setText("------------------------ No Entry Follows -------------------------------------------");
-
-        jLabel5.setText("GWA: ( Note: Float value (3,2) )");
-
-        jButton8.setBackground(new java.awt.Color(255, 0, 0));
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Delete");
-        jButton8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jButton6.setBackground(new java.awt.Color(102, 255, 102));
         jButton6.setText("Insert");
@@ -427,40 +415,49 @@ public class ViewGradesColumn_Troi extends javax.swing.JFrame {
         jButton7.setText("Update");
         jButton7.addActionListener(this::jButton7ActionPerformed);
 
+        jButton8.setBackground(new java.awt.Color(255, 0, 0));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Delete");
+        jButton8.addActionListener(this::jButton8ActionPerformed);
+
+        jLabel3.setText("----------------------------------- NO ENTRY FOLLOWS ---------------------------------------------");
+
+        jLabel5.setText("GWA : (Float Values (3,2) )");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel5)
-                        .addGap(123, 123, 123)
+                        .addContainerGap()
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(313, 313, 313)
                         .addComponent(jButton6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton8))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jLabel5)))
+                .addGap(21, 333, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7)
-                            .addComponent(jButton8)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8)
+                    .addComponent(jButton6))
+                .addContainerGap())
         );
 
         studentData1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
@@ -506,6 +503,10 @@ public class ViewGradesColumn_Troi extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments

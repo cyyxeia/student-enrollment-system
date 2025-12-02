@@ -4,7 +4,7 @@
  */
 package com.mycompany.student_enrollment_system;
 
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -49,6 +49,9 @@ public class homePage extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
         studentInfoWindow = new javax.swing.JPanel();
         studentInfoandIcon = new javax.swing.JPanel();
@@ -73,10 +76,8 @@ public class homePage extends javax.swing.JFrame {
         student_names = new javax.swing.JComboBox<>();
         searchButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
-        scheduleCard = new javax.swing.JPanel();
+        basicInfoCard = new javax.swing.JPanel();
         basicInfoText = new javax.swing.JLabel();
-        studentData1 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
 
         jButton4.setText("jButton4");
 
@@ -114,12 +115,28 @@ public class homePage extends javax.swing.JFrame {
         buttons.add(jButton1);
 
         jButton2.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jButton2.setText("Schedule");
+        jButton2.setText("Student");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
         buttons.add(jButton2);
 
         jButton3.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton3.setText("Enrollment");
         buttons.add(jButton3);
+
+        jButton6.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jButton6.setText("Subject & Grade");
+        jButton6.addActionListener(this::jButton6ActionPerformed);
+        buttons.add(jButton6);
+
+        jButton7.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jButton7.setText("College & Course");
+        jButton7.addActionListener(this::jButton7ActionPerformed);
+        buttons.add(jButton7);
+
+        jButton8.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jButton8.setText("Faculty");
+        jButton8.addActionListener(this::jButton8ActionPerformed);
+        buttons.add(jButton8);
 
         headerPanel.add(buttons, java.awt.BorderLayout.PAGE_END);
 
@@ -340,28 +357,18 @@ public class homePage extends javax.swing.JFrame {
 
         mainContentPanel.add(studentInfoWindow, java.awt.BorderLayout.WEST);
 
-        scheduleCard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        scheduleCard.setForeground(new java.awt.Color(255, 255, 255));
-        scheduleCard.setLayout(new java.awt.BorderLayout());
+        basicInfoCard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        basicInfoCard.setForeground(new java.awt.Color(255, 255, 255));
+        basicInfoCard.setLayout(new java.awt.GridLayout());
 
         basicInfoText.setFont(new java.awt.Font("Consolas", 1, 22)); // NOI18N
         basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         basicInfoText.setText("BASIC INFORMATION");
+        basicInfoText.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         basicInfoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        scheduleCard.add(basicInfoText, java.awt.BorderLayout.NORTH);
+        basicInfoCard.add(basicInfoText);
 
-        studentData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 10, 10, 10));
-        studentData1.setLayout(new java.awt.BorderLayout());
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel4.setPreferredSize(new java.awt.Dimension(100, 100));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-        studentData1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
-
-        scheduleCard.add(studentData1, java.awt.BorderLayout.CENTER);
-
-        mainContentPanel.add(scheduleCard, java.awt.BorderLayout.CENTER);
+        mainContentPanel.add(basicInfoCard, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
 
@@ -384,13 +391,21 @@ public class homePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_yearLevelActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        JOptionPane.showMessageDialog(null, "Test");// TODO add your handling code here:
-    }//GEN-LAST:event_searchButtonActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,6 +434,7 @@ public class homePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton LEGENDS;
+    private javax.swing.JPanel basicInfoCard;
     private javax.swing.JLabel basicInfoText;
     private javax.swing.JPanel buttons;
     private javax.swing.JButton clearButton;
@@ -429,6 +445,9 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -438,7 +457,6 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton4;
@@ -447,7 +465,6 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JLabel rightlogo;
-    private javax.swing.JPanel scheduleCard;
     private javax.swing.JLabel schoolName;
     private javax.swing.JPanel school_name;
     private javax.swing.JButton searchButton;
@@ -456,7 +473,6 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel spacer2;
     private javax.swing.ButtonGroup status;
     private javax.swing.JPanel studentData;
-    private javax.swing.JPanel studentData1;
     private javax.swing.JPanel studentInfoWindow;
     private javax.swing.JPanel studentInfoandIcon;
     private javax.swing.JComboBox<String> student_names;

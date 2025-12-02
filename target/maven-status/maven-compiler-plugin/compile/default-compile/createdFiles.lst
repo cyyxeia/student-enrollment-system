@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com\mycompany\student_enrollment_system\Student_Enrollment_System.class
 com\mycompany\student_enrollment_system\ViewGradesColumn_Troi$1.class
 com\mycompany\student_enrollment_system\images\LoginPage22.class
@@ -16,3 +17,5 @@ com\mycompany\student_enrollment_system\ViewGradesColumn_Troi$2.class
 com\mycompany\student_enrollment_system\schdeulepagetroi$2.class
 com\mycompany\student_enrollment_system\ViewGradesColumn_Troi.class
 com\mycompany\student_enrollment_system\schdeulepagetroi_withtime_column$2.class
+=======
+>>>>>>> 30c5ed24a36f72f70c4d2a2c6cb367492e650e09
