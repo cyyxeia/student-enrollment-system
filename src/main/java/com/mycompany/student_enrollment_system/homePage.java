@@ -12,15 +12,7 @@ public class homePage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(homePage.class.getName());
 
-    /**
-     * Creates new form homePage
-     */
-    public homePage() {
-        initComponents();
-        student_names.insertItemAt("", 0);
-        student_names.setSelectedIndex(0);
-        
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
