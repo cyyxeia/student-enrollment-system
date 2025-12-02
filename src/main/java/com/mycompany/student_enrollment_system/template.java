@@ -22,7 +22,6 @@ public class template extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         status = new javax.swing.ButtonGroup();
         semester = new javax.swing.ButtonGroup();
@@ -105,6 +104,7 @@ public class template extends javax.swing.JFrame {
         college_courseButton.addActionListener(this::college_courseButtonActionPerformed);
         buttons.add(college_courseButton);
 
+        profsButton.setBackground(new java.awt.Color(153, 204, 255));
         profsButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         profsButton.setText("Faculty");
         profsButton.addActionListener(this::profsButtonActionPerformed);
@@ -122,31 +122,38 @@ public class template extends javax.swing.JFrame {
 
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTable1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"CSC", "Human Computer Interaction", "2", "CISTM", "Alvin Genota", "2024-2025", "1st", "M/F", "12:00 pm", "3:00 pm", "GCA 306", "INACTIVE", "12/21/2025", "1.00"}
+                {"EMP 001", "LIM, Anabel ", "F", "12/21/2004"}
             },
             new String [] {
-                "Subject Code", "Subject Title", "Units", "College Code", "Professor", "School Year", "Semester", "Day Schedule", "Start Time", "End Time", "Room No.", "Status", "Date Closed", "Final Grade"
+                "Professor ID", "Professor Name", "Gender", "Birthday"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false, false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setCellSelectionEnabled(true);
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable1.setPreferredSize(new java.awt.Dimension(1000, 800));
         jTable1.setShowGrid(true);
-        jTable1.setShowVerticalLines(true);
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton1.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton1.setText("ADD");
