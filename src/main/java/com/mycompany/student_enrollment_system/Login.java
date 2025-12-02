@@ -142,10 +142,10 @@ public class Login extends javax.swing.JFrame {
         LogIn.add(UNPW);
         UNPW.setBounds(39, 153, 291, 421);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plm-logo (1).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         LogIn.add(jLabel2);
-        jLabel2.setBounds(140, 20, 80, 16);
+        jLabel2.setBounds(150, 20, 80, 70);
 
         bg.add(LogIn);
         LogIn.setBounds(390, 150, 370, 450);
