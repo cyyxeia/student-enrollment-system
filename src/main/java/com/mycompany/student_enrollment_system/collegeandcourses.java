@@ -22,6 +22,7 @@ public class collegeandcourses extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         status = new javax.swing.ButtonGroup();
         semester = new javax.swing.ButtonGroup();
@@ -31,21 +32,25 @@ public class collegeandcourses extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         school_name = new javax.swing.JPanel();
+        Dashboard_button = new javax.swing.JButton();
         leftlogo = new javax.swing.JLabel();
         schoolName = new javax.swing.JLabel();
         rightlogo = new javax.swing.JLabel();
+        Variable_button = new javax.swing.JButton();
         buttons = new javax.swing.JPanel();
-        homeButton = new javax.swing.JButton();
         studentButton = new javax.swing.JButton();
         enrollmentButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
         subject_gradeButton = new javax.swing.JButton();
         college_courseButton = new javax.swing.JButton();
-        profsButton = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        footerPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -64,6 +69,13 @@ public class collegeandcourses extends javax.swing.JFrame {
         school_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         school_name.setLayout(new java.awt.GridBagLayout());
 
+        Dashboard_button.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
+        Dashboard_button.setText("Dashboard");
+        Dashboard_button.addActionListener(this::Dashboard_buttonActionPerformed);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 130);
+        school_name.add(Dashboard_button, gridBagConstraints);
+
         leftlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         leftlogo.setText(" ");
         school_name.add(leftlogo, new java.awt.GridBagConstraints());
@@ -76,14 +88,16 @@ public class collegeandcourses extends javax.swing.JFrame {
         rightlogo.setText(" ");
         school_name.add(rightlogo, new java.awt.GridBagConstraints());
 
+        Variable_button.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
+        Variable_button.setText("Faculty");
+        Variable_button.addActionListener(this::Variable_buttonActionPerformed);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 130, 0, 0);
+        school_name.add(Variable_button, gridBagConstraints);
+
         headerPanel.add(school_name, java.awt.BorderLayout.CENTER);
 
         buttons.setLayout(new java.awt.GridLayout(1, 0));
-
-        homeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        homeButton.setText("Home");
-        homeButton.addActionListener(this::homeButtonActionPerformed);
-        buttons.add(homeButton);
 
         studentButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         studentButton.setText("Student");
@@ -94,20 +108,21 @@ public class collegeandcourses extends javax.swing.JFrame {
         enrollmentButton.setText("Enrollment");
         buttons.add(enrollmentButton);
 
+        homeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        homeButton.setText("Schedule");
+        homeButton.addActionListener(this::homeButtonActionPerformed);
+        buttons.add(homeButton);
+
         subject_gradeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         subject_gradeButton.setText("Subject & Grade");
         subject_gradeButton.addActionListener(this::subject_gradeButtonActionPerformed);
         buttons.add(subject_gradeButton);
 
+        college_courseButton.setBackground(new java.awt.Color(153, 204, 255));
         college_courseButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         college_courseButton.setText("College & Course");
         college_courseButton.addActionListener(this::college_courseButtonActionPerformed);
         buttons.add(college_courseButton);
-
-        profsButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        profsButton.setText("Faculty");
-        profsButton.addActionListener(this::profsButtonActionPerformed);
-        buttons.add(profsButton);
 
         headerPanel.add(buttons, java.awt.BorderLayout.PAGE_END);
 
@@ -118,55 +133,82 @@ public class collegeandcourses extends javax.swing.JFrame {
         mainContentPanel.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setLayout(new java.awt.BorderLayout());
+        mainContentPanel.add(jPanel3, java.awt.BorderLayout.CENTER);
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+
+        jTable3.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"CSC", "Human Computer Interaction", "2", "CISTM", "Alvin Genota", "2024-2025", "1st", "M/F", "12:00 pm", "3:00 pm", "GCA 306", "INACTIVE", "12/21/2025", "1.00"}
+                {"CISTM", "BSCS", "Bachelor of Science in Business Administration Major in Human Resource Management"}
             },
             new String [] {
-                "Subject Code", "Subject Title", "Units", "College Code", "Professor", "School Year", "Semester", "Day Schedule", "Start Time", "End Time", "Room No.", "Status", "Date Closed", "Final Grade"
+                "College Code", "Course Code", "Course Title"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false, false, false, false, false, false, false
-            };
+        ));
+        jTable3.setPreferredSize(new java.awt.Dimension(1000, 800));
+        jTable3.setShowGrid(false);
+        jTable3.setShowHorizontalLines(true);
+        jTable3.setShowVerticalLines(true);
+        jScrollPane3.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(2).setPreferredWidth(500);
+        }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        jPanel5.add(jScrollPane3);
+
+        jTable2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"CISTM", "Bachelor of Science in Computer Science", "A"}
+            },
+            new String [] {
+                "College Code", "College Title", "Status"
+            }
+        ));
+        jTable2.setPreferredSize(new java.awt.Dimension(1000, 800));
+        jTable2.setShowGrid(false);
+        jTable2.setShowHorizontalLines(true);
+        jTable2.setShowVerticalLines(true);
+        jTable2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                jTable2ComponentHidden(evt);
             }
         });
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTable1.setPreferredSize(new java.awt.Dimension(1000, 800));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane2.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(1).setPreferredWidth(400);
+        }
 
-        jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        jPanel5.add(jScrollPane2);
 
-        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
+        mainContentPanel.add(jPanel5, java.awt.BorderLayout.CENTER);
 
+        getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
+
+        footerPanel.setLayout(new java.awt.GridLayout(1, 0));
+
+        jButton1.setBackground(new java.awt.Color(102, 255, 102));
         jButton1.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton1.setText("ADD");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel4.add(jButton1);
+        footerPanel.add(jButton1);
 
-        jButton2.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(153, 255, 255));
+        jButton2.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         jButton2.setText("MODIFY");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel4.add(jButton2);
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+        footerPanel.add(jButton2);
 
+        jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton3.setText("DELETE");
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton3.addActionListener(this::jButton3ActionPerformed);
-        jPanel4.add(jButton3);
+        footerPanel.add(jButton3);
 
-        jPanel3.add(jPanel4, java.awt.BorderLayout.PAGE_END);
-
-        mainContentPanel.add(jPanel3, java.awt.BorderLayout.CENTER);
-
-        getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
+        getContentPane().add(footerPanel, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,13 +229,25 @@ public class collegeandcourses extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_college_courseButtonActionPerformed
 
-    private void profsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profsButtonActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTable2ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTable2ComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2ComponentHidden
+
+    private void Variable_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Variable_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Variable_buttonActionPerformed
+
+    private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Dashboard_buttonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,9 +275,12 @@ public class collegeandcourses extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Dashboard_button;
+    private javax.swing.JButton Variable_button;
     private javax.swing.JPanel buttons;
     private javax.swing.JButton college_courseButton;
     private javax.swing.JButton enrollmentButton;
+    private javax.swing.JPanel footerPanel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton jButton1;
@@ -234,12 +291,13 @@ public class collegeandcourses extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
-    private javax.swing.JButton profsButton;
     private javax.swing.JLabel rightlogo;
     private javax.swing.JLabel schoolName;
     private javax.swing.JPanel school_name;

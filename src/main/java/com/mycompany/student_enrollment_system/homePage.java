@@ -359,7 +359,7 @@ public class homePage extends javax.swing.JFrame {
 
         basicInfoCard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         basicInfoCard.setForeground(new java.awt.Color(255, 255, 255));
-        basicInfoCard.setLayout(new java.awt.GridLayout());
+        basicInfoCard.setLayout(new java.awt.GridLayout(1, 0));
 
         basicInfoText.setFont(new java.awt.Font("Consolas", 1, 22)); // NOI18N
         basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

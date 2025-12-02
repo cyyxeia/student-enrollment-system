@@ -145,7 +145,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         LogIn.add(jLabel2);
-        jLabel2.setBounds(140, 20, 80, 16);
+        jLabel2.setBounds(150, 20, 80, 70);
 
         bg.add(LogIn);
         LogIn.setBounds(390, 150, 370, 450);
