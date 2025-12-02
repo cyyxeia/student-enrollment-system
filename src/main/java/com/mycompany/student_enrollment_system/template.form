@@ -195,6 +195,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="profsButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Consolas" size="16" style="1"/>
                 </Property>
@@ -253,120 +256,44 @@
                         <LineBorder/>
                       </Border>
                     </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Consolas" size="14" style="0"/>
+                    </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="14" rowCount="1">
-                        <Column editable="false" title="Subject Code" type="java.lang.Object">
-                          <Data value="CSC"/>
+                      <Table columnCount="4" rowCount="1">
+                        <Column editable="false" title="Professor ID" type="java.lang.Object">
+                          <Data value="EMP 001"/>
                         </Column>
-                        <Column editable="false" title="Subject Title" type="java.lang.Object">
-                          <Data value="Human Computer Interaction"/>
+                        <Column editable="false" title="Professor Name" type="java.lang.Object">
+                          <Data value="LIM, Anabel "/>
                         </Column>
-                        <Column editable="false" title="Units" type="java.lang.Object">
-                          <Data value="2"/>
+                        <Column editable="false" title="Gender" type="java.lang.Object">
+                          <Data value="F"/>
                         </Column>
-                        <Column editable="false" title="College Code" type="java.lang.Object">
-                          <Data value="CISTM"/>
-                        </Column>
-                        <Column editable="false" title="Professor" type="java.lang.Object">
-                          <Data value="Alvin Genota"/>
-                        </Column>
-                        <Column editable="false" title="School Year" type="java.lang.Object">
-                          <Data value="2024-2025"/>
-                        </Column>
-                        <Column editable="true" title="Semester" type="java.lang.Object">
-                          <Data value="1st"/>
-                        </Column>
-                        <Column editable="false" title="Day Schedule" type="java.lang.Object">
-                          <Data value="M/F"/>
-                        </Column>
-                        <Column editable="false" title="Start Time" type="java.lang.Object">
-                          <Data value="12:00 pm"/>
-                        </Column>
-                        <Column editable="false" title="End Time" type="java.lang.Object">
-                          <Data value="3:00 pm"/>
-                        </Column>
-                        <Column editable="false" title="Room No." type="java.lang.Object">
-                          <Data value="GCA 306"/>
-                        </Column>
-                        <Column editable="false" title="Status" type="java.lang.Object">
-                          <Data value="INACTIVE"/>
-                        </Column>
-                        <Column editable="false" title="Date Closed" type="java.lang.Object">
-                          <Data value="12/21/2025"/>
-                        </Column>
-                        <Column editable="false" title="Final Grade" type="java.lang.Object">
-                          <Data value="1.00"/>
+                        <Column editable="false" title="Birthday" type="java.lang.Object">
+                          <Data value="12/21/2004"/>
                         </Column>
                       </Table>
                     </Property>
+                    <Property name="cellSelectionEnabled" type="boolean" value="true"/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -380,7 +307,6 @@
                       <Dimension value="[1000, 800]"/>
                     </Property>
                     <Property name="showGrid" type="boolean" value="true"/>
-                    <Property name="showVerticalLines" type="boolean" value="true"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
