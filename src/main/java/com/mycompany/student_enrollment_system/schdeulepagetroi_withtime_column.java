@@ -123,6 +123,7 @@ public class schdeulepagetroi_withtime_column extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton2.setText("Schedule");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
         buttons.add(jButton2);
 
         jButton3.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
@@ -347,7 +348,7 @@ public class schdeulepagetroi_withtime_column extends javax.swing.JFrame {
         scheduleCard.setForeground(new java.awt.Color(255, 255, 255));
         scheduleCard.setLayout(new java.awt.BorderLayout());
 
-        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
+        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         basicInfoText.setText("Schedule");
         basicInfoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -456,6 +457,10 @@ public class schdeulepagetroi_withtime_column extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

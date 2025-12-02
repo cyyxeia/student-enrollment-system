@@ -4,6 +4,8 @@
  */
 package com.mycompany.student_enrollment_system;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo x270
@@ -268,6 +270,7 @@ public class homePage extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         jComboBox1.setMaximumRowCount(2);
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Block-", "Block 1", "Block 2", "Block 3", "Block 4", "Block 5", "Block 6" }));
+        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -304,6 +307,7 @@ public class homePage extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 200, 0, 0);
         studentData.add(jRadioButton6, gridBagConstraints);
 
+        student_names.setEditable(true);
         student_names.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         student_names.setMaximumRowCount(5);
         student_names.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Student-", "Cyrus Kent B. De Guzman", "John Devonaire L. Garcia", "Nheil Jewel F. Blanche", "Troi Isaac V. Limin", "JP \"The Legend\" Medalla", "Curien Del Rosario", "Lorejane Dela Cruz", " " }));
@@ -317,6 +321,7 @@ public class homePage extends javax.swing.JFrame {
 
         searchButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(this::searchButtonActionPerformed);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -339,7 +344,7 @@ public class homePage extends javax.swing.JFrame {
         scheduleCard.setForeground(new java.awt.Color(255, 255, 255));
         scheduleCard.setLayout(new java.awt.BorderLayout());
 
-        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 22)); // NOI18N
         basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         basicInfoText.setText("BASIC INFORMATION");
         basicInfoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -378,6 +383,14 @@ public class homePage extends javax.swing.JFrame {
     private void yearLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearLevelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_yearLevelActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        JOptionPane.showMessageDialog(null, "Test");// TODO add your handling code here:
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments

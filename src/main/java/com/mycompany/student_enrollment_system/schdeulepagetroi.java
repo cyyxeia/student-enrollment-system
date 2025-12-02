@@ -4,6 +4,8 @@
  */
 package com.mycompany.student_enrollment_system;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo x270
@@ -349,7 +351,7 @@ public class schdeulepagetroi extends javax.swing.JFrame {
         scheduleCard.setForeground(new java.awt.Color(255, 255, 255));
         scheduleCard.setLayout(new java.awt.BorderLayout());
 
-        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
+        basicInfoText.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         basicInfoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         basicInfoText.setText("Schedule");
         basicInfoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -454,6 +456,7 @@ public class schdeulepagetroi extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Test");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
@@ -487,7 +490,7 @@ public class schdeulepagetroi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton LEGENDS;
-    private javax.swing.JLabel basicInfoText;
+    public javax.swing.JLabel basicInfoText;
     private javax.swing.JPanel buttons;
     private javax.swing.JButton clearButton;
     private javax.swing.JPanel headerPanel;
