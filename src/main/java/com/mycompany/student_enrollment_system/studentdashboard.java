@@ -522,7 +522,7 @@ public class studentdashboard extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 25);
         studentData1.add(jLabel52, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -535,7 +535,7 @@ public class studentdashboard extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 200);
         studentData1.add(jLabel67, gridBagConstraints);
 
         jLabel68.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -543,7 +543,7 @@ public class studentdashboard extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         studentData1.add(jLabel68, gridBagConstraints);
 
         mainContentPanel.add(studentData1);

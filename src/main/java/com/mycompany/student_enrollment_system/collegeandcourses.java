@@ -44,12 +44,11 @@ public class collegeandcourses extends javax.swing.JFrame {
         subject_gradeButton = new javax.swing.JButton();
         college_courseButton = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+        tablesPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
         footerPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -132,57 +131,50 @@ public class collegeandcourses extends javax.swing.JFrame {
         mainContentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         mainContentPanel.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setLayout(new java.awt.BorderLayout());
-        mainContentPanel.add(jPanel3, java.awt.BorderLayout.CENTER);
-
-        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+        tablesPanel.setLayout(new java.awt.GridLayout(2, 1));
 
         jTable3.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"CISTM", "BSCS", "Bachelor of Science in Business Administration Major in Human Resource Management"}
+                {"BSCS", "Bachelor of Science in Business Administration Major in Human Resource Management", "A"}
             },
             new String [] {
-                "College Code", "Course Code", "Course Title"
+                "Program Code", "Program Title", "Status"
             }
         ));
+        jTable3.setCellSelectionEnabled(true);
         jTable3.setPreferredSize(new java.awt.Dimension(1000, 800));
         jTable3.setShowGrid(false);
         jTable3.setShowHorizontalLines(true);
         jTable3.setShowVerticalLines(true);
         jScrollPane3.setViewportView(jTable3);
         if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(2).setPreferredWidth(500);
+            jTable3.getColumnModel().getColumn(1).setPreferredWidth(500);
         }
 
-        jPanel5.add(jScrollPane3);
+        tablesPanel.add(jScrollPane3);
 
-        jTable2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable5.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"CISTM", "Bachelor of Science in Computer Science", "A"}
+                {"BSCS", "CISTM", "College of Information Systems and Technology Management"}
             },
             new String [] {
-                "College Code", "College Title", "Status"
+                "Program Code", "College Code", "College Title"
             }
         ));
-        jTable2.setPreferredSize(new java.awt.Dimension(1000, 800));
-        jTable2.setShowGrid(false);
-        jTable2.setShowHorizontalLines(true);
-        jTable2.setShowVerticalLines(true);
-        jTable2.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                jTable2ComponentHidden(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(400);
+        jTable5.setPreferredSize(new java.awt.Dimension(1000, 800));
+        jTable5.setShowGrid(false);
+        jTable5.setShowHorizontalLines(true);
+        jTable5.setShowVerticalLines(true);
+        jScrollPane5.setViewportView(jTable5);
+        if (jTable5.getColumnModel().getColumnCount() > 0) {
+            jTable5.getColumnModel().getColumn(2).setPreferredWidth(500);
         }
 
-        jPanel5.add(jScrollPane2);
+        tablesPanel.add(jScrollPane5);
 
-        mainContentPanel.add(jPanel5, java.awt.BorderLayout.CENTER);
+        mainContentPanel.add(tablesPanel, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
 
@@ -232,10 +224,6 @@ public class collegeandcourses extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jTable2ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTable2ComponentHidden
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable2ComponentHidden
 
     private void Variable_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Variable_buttonActionPerformed
         // TODO add your handling code here:
@@ -290,12 +278,10 @@ public class collegeandcourses extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable5;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JLabel rightlogo;
@@ -305,5 +291,6 @@ public class collegeandcourses extends javax.swing.JFrame {
     private javax.swing.ButtonGroup status;
     private javax.swing.JButton studentButton;
     private javax.swing.JButton subject_gradeButton;
+    private javax.swing.JPanel tablesPanel;
     // End of variables declaration//GEN-END:variables
 }
