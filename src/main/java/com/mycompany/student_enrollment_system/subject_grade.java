@@ -172,7 +172,15 @@ public class subject_grade extends javax.swing.JFrame {
             new String [] {
                 "Subject Code", "Subject Title", "Units", "College Code", "Professor", "School Year", "Semester", "Final Grade"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         subject_gradeTable.setCellSelectionEnabled(true);
         subject_gradeTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         subject_gradeTable.setPreferredSize(new java.awt.Dimension(1000, 800));

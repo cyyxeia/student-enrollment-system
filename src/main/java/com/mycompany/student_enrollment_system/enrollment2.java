@@ -8,9 +8,9 @@ package com.mycompany.student_enrollment_system;
  *
  * @author Lenovo x270
  */
-public class collegeandcourses extends javax.swing.JFrame {
+public class enrollment2 extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(collegeandcourses.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(enrollment2.class.getName());
 
    
 
@@ -103,6 +103,7 @@ public class collegeandcourses extends javax.swing.JFrame {
         studentButton.addActionListener(this::studentButtonActionPerformed);
         buttons.add(studentButton);
 
+        enrollmentButton.setBackground(new java.awt.Color(153, 204, 255));
         enrollmentButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         enrollmentButton.setText("Enrollment");
         buttons.add(enrollmentButton);
@@ -117,7 +118,6 @@ public class collegeandcourses extends javax.swing.JFrame {
         subject_gradeButton.addActionListener(this::subject_gradeButtonActionPerformed);
         buttons.add(subject_gradeButton);
 
-        college_courseButton.setBackground(new java.awt.Color(153, 204, 255));
         college_courseButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         college_courseButton.setText("College & Course");
         college_courseButton.addActionListener(this::college_courseButtonActionPerformed);
@@ -133,54 +133,42 @@ public class collegeandcourses extends javax.swing.JFrame {
 
         tablesPanel.setLayout(new java.awt.GridLayout(2, 1));
 
-        jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
+        jTable3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable3.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"BSCS", "Bachelor of Science in Business Administration Major in Human Resource Management", "A"}
+                {"2024-2025", "1", "BSCS", "202410508", "DE GUZMAN, Cyrus Kent B.", "Regular"}
             },
             new String [] {
-                "Program Code", "Program Title", "Status"
+                "School Year", "Semester", "Program", "Student Number", "Student Name", "Status"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jTable3.setCellSelectionEnabled(true);
         jTable3.setPreferredSize(new java.awt.Dimension(1000, 800));
         jTable3.setShowGrid(false);
+        jTable3.setShowHorizontalLines(true);
+        jTable3.setShowVerticalLines(true);
         jScrollPane3.setViewportView(jTable3);
         if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(1).setPreferredWidth(500);
+            jTable3.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable3.getColumnModel().getColumn(1).setPreferredWidth(20);
+            jTable3.getColumnModel().getColumn(2).setPreferredWidth(10);
+            jTable3.getColumnModel().getColumn(3).setPreferredWidth(20);
+            jTable3.getColumnModel().getColumn(5).setPreferredWidth(20);
         }
 
         tablesPanel.add(jScrollPane3);
 
-        jScrollPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
+        jTable5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable5.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"BSCS", "CISTM", "College of Information Systems and Technology Management"}
+                {"ICC 0102", "Interdisiplinaryong Pagbasa at Pagsulat Tungo sa Mabisang Pagpapahayag", "4:00 pm - 9:00 pm - F", "CL 4", "REGALA, Richard"}
             },
             new String [] {
-                "Program Code", "College Code", "College Title"
+                "Subject Code", "Subject Title", "Schedule", "Room", "Professor"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jTable5.setCellSelectionEnabled(true);
         jTable5.setPreferredSize(new java.awt.Dimension(1000, 800));
         jTable5.setShowGrid(false);
@@ -188,7 +176,10 @@ public class collegeandcourses extends javax.swing.JFrame {
         jTable5.setShowVerticalLines(true);
         jScrollPane5.setViewportView(jTable5);
         if (jTable5.getColumnModel().getColumnCount() > 0) {
-            jTable5.getColumnModel().getColumn(2).setPreferredWidth(500);
+            jTable5.getColumnModel().getColumn(0).setPreferredWidth(5);
+            jTable5.getColumnModel().getColumn(1).setPreferredWidth(400);
+            jTable5.getColumnModel().getColumn(2).setPreferredWidth(50);
+            jTable5.getColumnModel().getColumn(3).setPreferredWidth(5);
         }
 
         tablesPanel.add(jScrollPane5);
@@ -278,7 +269,7 @@ public class collegeandcourses extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new collegeandcourses().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new enrollment2().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

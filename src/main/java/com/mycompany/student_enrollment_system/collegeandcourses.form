@@ -261,6 +261,13 @@
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -274,13 +281,13 @@
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="1">
-                        <Column editable="true" title="Program Code" type="java.lang.Object">
+                        <Column editable="false" title="Program Code" type="java.lang.Object">
                           <Data value="BSCS"/>
                         </Column>
-                        <Column editable="true" title="Program Title" type="java.lang.Object">
+                        <Column editable="false" title="Program Title" type="java.lang.Object">
                           <Data value="Bachelor of Science in Business Administration Major in Human Resource Management"/>
                         </Column>
-                        <Column editable="true" title="Status" type="java.lang.Object">
+                        <Column editable="false" title="Status" type="java.lang.Object">
                           <Data value="A"/>
                         </Column>
                       </Table>
@@ -309,8 +316,6 @@
                       <Dimension value="[1000, 800]"/>
                     </Property>
                     <Property name="showGrid" type="boolean" value="false"/>
-                    <Property name="showHorizontalLines" type="boolean" value="true"/>
-                    <Property name="showVerticalLines" type="boolean" value="true"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
@@ -319,6 +324,13 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -332,17 +344,18 @@
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="1">
-                        <Column editable="true" title="Program Code" type="java.lang.Object">
+                        <Column editable="false" title="Program Code" type="java.lang.Object">
                           <Data value="BSCS"/>
                         </Column>
-                        <Column editable="true" title="College Code" type="java.lang.Object">
+                        <Column editable="false" title="College Code" type="java.lang.Object">
                           <Data value="CISTM"/>
                         </Column>
-                        <Column editable="true" title="College Title" type="java.lang.Object">
+                        <Column editable="false" title="College Title" type="java.lang.Object">
                           <Data value="College of Information Systems and Technology Management"/>
                         </Column>
                       </Table>
                     </Property>
+                    <Property name="cellSelectionEnabled" type="boolean" value="true"/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">

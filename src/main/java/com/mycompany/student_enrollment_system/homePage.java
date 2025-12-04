@@ -59,7 +59,6 @@ public class homePage extends javax.swing.JFrame {
         yearLevel1 = new javax.swing.JComboBox<>();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton7 = new javax.swing.JRadioButton();
-        LEGENDS1 = new javax.swing.JRadioButton();
         jComboBox2 = new javax.swing.JComboBox<>();
         jRadioButton8 = new javax.swing.JRadioButton();
         jRadioButton9 = new javax.swing.JRadioButton();
@@ -286,18 +285,6 @@ public class homePage extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(-35, 120, 0, 70);
         leftPanelParent.add(jRadioButton7, gridBagConstraints);
 
-        status.add(LEGENDS1);
-        LEGENDS1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        LEGENDS1.setForeground(new java.awt.Color(255, 215, 0));
-        LEGENDS1.setText("Legends");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(-80, 0, 0, 150);
-        leftPanelParent.add(LEGENDS1, gridBagConstraints);
-
         jComboBox2.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         jComboBox2.setMaximumRowCount(2);
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Block-", "Block 1", "Block 2", "Block 3", "Block 4", "Block 5", "Block 6" }));
@@ -348,6 +335,7 @@ public class homePage extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
         leftPanelParent.add(student_names1, gridBagConstraints);
 
+        searchButton1.setBackground(new java.awt.Color(102, 255, 102));
         searchButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         searchButton1.setText("Search");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -356,6 +344,7 @@ public class homePage extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, -200, 50, 0);
         leftPanelParent.add(searchButton1, gridBagConstraints);
 
+        clearButton1.setBackground(new java.awt.Color(255, 0, 0));
         clearButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         clearButton1.setText("Clear");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -584,7 +573,6 @@ public class homePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton LEGENDS1;
     private javax.swing.JPanel buttons;
     private javax.swing.JButton clearButton1;
     private javax.swing.JButton facultyButton;

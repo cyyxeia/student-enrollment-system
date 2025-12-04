@@ -155,6 +155,7 @@ public class schedule extends javax.swing.JFrame {
         TablePanel.setLayout(new java.awt.BorderLayout());
 
         jTable1.setAutoCreateRowSorter(true);
+        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,7 +164,15 @@ public class schedule extends javax.swing.JFrame {
             new String [] {
                 "Subject Code", "Subject Title", "Day Schedule", "Start Time", "End Time", "Room No.", "Status", "Date Closed"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setCellSelectionEnabled(true);
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable1.setPreferredSize(new java.awt.Dimension(1000, 800));

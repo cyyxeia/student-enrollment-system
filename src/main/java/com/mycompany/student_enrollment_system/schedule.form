@@ -337,33 +337,38 @@
                 <Component class="javax.swing.JTable" name="jTable1">
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Consolas" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="8" rowCount="1">
-                        <Column editable="true" title="Subject Code" type="java.lang.Object">
+                        <Column editable="false" title="Subject Code" type="java.lang.Object">
                           <Data value="IPP 0010"/>
                         </Column>
-                        <Column editable="true" title="Subject Title" type="java.lang.Object">
+                        <Column editable="false" title="Subject Title" type="java.lang.Object">
                           <Data value="Interdisiplinaryong Pagbasa at Pagsulat Tungo sa Mabisang Pagpapahayag"/>
                         </Column>
-                        <Column editable="true" title="Day Schedule" type="java.lang.Object">
+                        <Column editable="false" title="Day Schedule" type="java.lang.Object">
                           <Data value="W"/>
                         </Column>
-                        <Column editable="true" title="Start Time" type="java.lang.Object">
+                        <Column editable="false" title="Start Time" type="java.lang.Object">
                           <Data value="4:00 pm"/>
                         </Column>
-                        <Column editable="true" title="End Time" type="java.lang.Object">
+                        <Column editable="false" title="End Time" type="java.lang.Object">
                           <Data value="5:30 pm"/>
                         </Column>
-                        <Column editable="true" title="Room No." type="java.lang.Object">
+                        <Column editable="false" title="Room No." type="java.lang.Object">
                           <Data value="GV 209"/>
                         </Column>
-                        <Column editable="true" title="Status" type="java.lang.Object">
+                        <Column editable="false" title="Status" type="java.lang.Object">
                           <Data value="I"/>
                         </Column>
-                        <Column editable="true" title="Date Closed" type="java.lang.Object">
+                        <Column editable="false" title="Date Closed" type="java.lang.Object">
                           <Data value="12/22/2024"/>
                         </Column>
                       </Table>
