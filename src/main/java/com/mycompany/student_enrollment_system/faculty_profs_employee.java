@@ -19,7 +19,6 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         this.framework = framework;
         initComponents();
         model = (DefaultTableModel) empTable.getModel();
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.
