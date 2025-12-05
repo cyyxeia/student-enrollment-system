@@ -10,9 +10,12 @@ package com.mycompany.student_enrollment_system;
  */
 public class schedule extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(schedule.class.getName());
-
-   
+//    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(schedule.class.getName());
+    private Framework framework;
+    public schedule(Framework framework) {
+        this.framework = framework;
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,6 +75,7 @@ public class schedule extends javax.swing.JFrame {
 
         enrollmentButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         enrollmentButton.setText("Enrollment");
+        enrollmentButton.addActionListener(this::enrollmentButtonActionPerformed);
         buttons.add(enrollmentButton);
 
         homeButton.setBackground(new java.awt.Color(153, 204, 255));
@@ -198,14 +202,20 @@ public class schedule extends javax.swing.JFrame {
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
         // TODO add your handling code here:
+        framework.openStudent();
+        this.dispose();
     }//GEN-LAST:event_studentButtonActionPerformed
 
     private void subject_gradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subject_gradeButtonActionPerformed
         // TODO add your handling code here:
+        framework.openSubjectAndGrade();
+        this.dispose();
     }//GEN-LAST:event_subject_gradeButtonActionPerformed
 
     private void college_courseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_college_courseButtonActionPerformed
         // TODO add your handling code here:
+        framework.openCollegeAndCourse();
+        this.dispose();
     }//GEN-LAST:event_college_courseButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -214,36 +224,46 @@ public class schedule extends javax.swing.JFrame {
 
     private void home_dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_dashboardButtonActionPerformed
         // TODO add your handling code here:
+        framework.openHomepage();
+        this.dispose();
     }//GEN-LAST:event_home_dashboardButtonActionPerformed
 
     private void facultyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facultyButtonActionPerformed
         // TODO add your handling code here:
+        framework.openFaculty();
+        this.dispose();
     }//GEN-LAST:event_facultyButtonActionPerformed
+
+    private void enrollmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollmentButtonActionPerformed
+        // TODO add your handling code here:
+        framework.openEnrollment();
+        this.dispose();
+    }//GEN-LAST:event_enrollmentButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new schedule().setVisible(true));
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(() -> new schedule().setVisible(true));
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TablePanel;

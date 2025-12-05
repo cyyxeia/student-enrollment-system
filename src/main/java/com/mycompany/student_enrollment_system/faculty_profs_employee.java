@@ -3,17 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.student_enrollment_system;
-
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Lenovo x270
  */
 public class faculty_profs_employee extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(faculty_profs_employee.class.getName());
-
-   
-
+//    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(faculty_profs_employee.class.getName());
+    private Framework framework;
+    private DefaultTableModel model;
+    
+    public faculty_profs_employee(Framework framework) {
+        this.framework = framework;
+        initComponents();
+        model = (DefaultTableModel) empTable.getModel();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,7 +57,7 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         mainContentPanel = new javax.swing.JPanel();
         TablePanel = new javax.swing.JPanel();
         firstTable = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        empTable = new javax.swing.JTable();
 
         jButton4.setText("jButton4");
 
@@ -72,6 +79,7 @@ public class faculty_profs_employee extends javax.swing.JFrame {
 
         enrollmentButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         enrollmentButton.setText("Enrollment");
+        enrollmentButton.addActionListener(this::enrollmentButtonActionPerformed);
         buttons.add(enrollmentButton);
 
         homeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
@@ -132,6 +140,7 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton1.setText("ADD");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addActionListener(this::jButton1ActionPerformed);
         footerPanel.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
@@ -154,10 +163,10 @@ public class faculty_profs_employee extends javax.swing.JFrame {
 
         TablePanel.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        empTable.setAutoCreateRowSorter(true);
+        empTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        empTable.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        empTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"EMP 004", "SALGADO, Shirley", "CHASS", "F", "11/24/1989"}
             },
@@ -173,14 +182,15 @@ public class faculty_profs_employee extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setCellSelectionEnabled(true);
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTable1.setPreferredSize(new java.awt.Dimension(1000, 800));
-        jTable1.setShowGrid(true);
-        jTable1.setSurrendersFocusOnKeystroke(true);
-        firstTable.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(500);
+        empTable.setCellSelectionEnabled(true);
+        empTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        empTable.setDragEnabled(true);
+        empTable.setPreferredSize(new java.awt.Dimension(1000, 800));
+        empTable.setShowGrid(true);
+        empTable.setSurrendersFocusOnKeystroke(true);
+        firstTable.setViewportView(empTable);
+        if (empTable.getColumnModel().getColumnCount() > 0) {
+            empTable.getColumnModel().getColumn(1).setPreferredWidth(500);
         }
 
         TablePanel.add(firstTable, java.awt.BorderLayout.CENTER);
@@ -194,18 +204,26 @@ public class faculty_profs_employee extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
+        framework.openSchedule();
+        this.dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
         // TODO add your handling code here:
+        framework.openStudent();
+        this.dispose();
     }//GEN-LAST:event_studentButtonActionPerformed
 
     private void subject_gradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subject_gradeButtonActionPerformed
         // TODO add your handling code here:
+        framework.openSubjectAndGrade();
+        this.dispose();
     }//GEN-LAST:event_subject_gradeButtonActionPerformed
 
     private void college_courseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_college_courseButtonActionPerformed
         // TODO add your handling code here:
+        framework.openCollegeAndCourse();
+        this.dispose();
     }//GEN-LAST:event_college_courseButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -214,41 +232,64 @@ public class faculty_profs_employee extends javax.swing.JFrame {
 
     private void home_dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_dashboardButtonActionPerformed
         // TODO add your handling code here:
+        framework.openHomepage();
+        this.dispose();
     }//GEN-LAST:event_home_dashboardButtonActionPerformed
 
     private void facultyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facultyButtonActionPerformed
         // TODO add your handling code here:
+        framework.openFaculty();
+        this.dispose();
     }//GEN-LAST:event_facultyButtonActionPerformed
 
+    private void enrollmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollmentButtonActionPerformed
+        // TODO add your handling code here:
+        framework.openEnrollment();
+        this.dispose();
+    }//GEN-LAST:event_enrollmentButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        framework.addNewRow("Employee");
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    public void clearTable() {
+        model = (DefaultTableModel) empTable.getModel();
+        model.setRowCount(0);
+    }
+    public void loadTable(String id, String name, String college, String gender, Date birthday) {
+        model.addRow(new Object[] {id, name, college, gender, birthday});
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new faculty_profs_employee().setVisible(true));
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(() -> new faculty_profs_employee().setVisible(true));
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TablePanel;
     private javax.swing.JPanel buttons;
     private javax.swing.JButton college_courseButton;
+    private javax.swing.JTable empTable;
     private javax.swing.JButton enrollmentButton;
     private javax.swing.JButton facultyButton;
     private javax.swing.JScrollPane firstTable;
@@ -263,7 +304,6 @@ public class faculty_profs_employee extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JLabel rightlogo;

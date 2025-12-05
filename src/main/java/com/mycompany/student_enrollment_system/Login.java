@@ -10,12 +10,12 @@ package com.mycompany.student_enrollment_system;
  */
 public class Login extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
-
-    /**
-     * Creates new form Login
-     */
-    public Login() {
+//    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
+    private String loginPassword;
+    private String loginUsername;
+    private Framework framework;
+    public Login(Framework framework) {
+        this.framework = framework;
         initComponents();
     }
 
@@ -39,11 +39,9 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         Username = new javax.swing.JTextField();
         LOGIN = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        usernameNotFound = new javax.swing.JLabel();
+        passwordIncorrect = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,14 +87,15 @@ public class Login extends javax.swing.JFrame {
         LOGIN.setText("LOGIN");
         LOGIN.addActionListener(this::LOGINActionPerformed);
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 102));
-        jButton1.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 51, 51));
-        jButton1.setText("LOGIN");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setHideActionText(true);
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        usernameNotFound.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        usernameNotFound.setForeground(new java.awt.Color(255, 51, 51));
+        usernameNotFound.setText("Username not found");
+        usernameNotFound.setFocusable(false);
+
+        passwordIncorrect.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        passwordIncorrect.setForeground(new java.awt.Color(255, 51, 51));
+        passwordIncorrect.setText("Password incorrect");
+        passwordIncorrect.setFocusable(false);
 
         javax.swing.GroupLayout UNPWLayout = new javax.swing.GroupLayout(UNPW);
         UNPW.setLayout(UNPWLayout);
@@ -108,39 +107,44 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jPasswordField1)
                     .addComponent(Username)))
             .addGroup(UNPWLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 84, Short.MAX_VALUE))
+            .addGroup(UNPWLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(UNPWLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(User_name)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(usernameNotFound))
                     .addGroup(UNPWLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(User_name)
-                            .addComponent(Password))))
-                .addGap(0, 84, Short.MAX_VALUE))
+                        .addComponent(Password)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(passwordIncorrect)))
+                .addContainerGap())
         );
         UNPWLayout.setVerticalGroup(
             UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UNPWLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(User_name)
+                .addGap(13, 13, 13)
+                .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(User_name)
+                    .addComponent(usernameNotFound))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Password)
+                .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Password)
+                    .addComponent(passwordIncorrect))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
 
         LogIn.add(UNPW);
-        UNPW.setBounds(39, 153, 291, 421);
+        UNPW.setBounds(39, 153, 291, 270);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -150,37 +154,6 @@ public class Login extends javax.swing.JFrame {
         bg.add(LogIn);
         LogIn.setBounds(390, 150, 370, 450);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmbg_1 (1).png"))); // NOI18N
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bg.add(jLabel1);
-        jLabel1.setBounds(0, 0, 0, 0);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plm-logo (1).png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 122, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        bg.add(jPanel1);
-        jPanel1.setBounds(880, 260, 122, 100);
-
         getContentPane().add(bg, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -188,6 +161,10 @@ public class Login extends javax.swing.JFrame {
 
     private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
         // TODO add your handling code here:
+        loginUsername = Username.getText();
+        loginPassword = new String(jPasswordField1.getPassword());
+        framework.loginCheck(loginUsername, loginPassword);
+//        this.dispose();
     }//GEN-LAST:event_LOGINActionPerformed
 
     private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
@@ -198,34 +175,38 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    public void userNotPassIncorrectTextVisibility(boolean userNotVisibility, boolean passIncorrectVisibility) {
+        usernameNotFound.setVisible(userNotVisibility);
+        passwordIncorrect.setVisible(passIncorrectVisibility);
+    }
+    public void clearFields() {
+        Username.setText("");
+        jPasswordField1.setText("");
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LOGIN;
@@ -238,11 +219,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel User_name;
     private javax.swing.JTextField Username;
     private javax.swing.JPanel bg;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel passwordIncorrect;
+    private javax.swing.JLabel usernameNotFound;
     // End of variables declaration//GEN-END:variables
 }
