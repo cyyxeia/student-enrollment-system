@@ -43,7 +43,7 @@ public class Login extends javax.swing.JFrame {
 
         loginBackground.setLayout(null);
 
-        panelRightImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/loginbg.jpg"))); // NOI18N
+        panelRightImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmBackgroundLogin.jpg"))); // NOI18N
         panelRightImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         loginBackground.add(panelRightImage);
         panelRightImage.setBounds(760, 150, 372, 450);
@@ -51,7 +51,7 @@ public class Login extends javax.swing.JFrame {
         panelLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelLogin.setLayout(null);
 
-        loginLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
+        loginLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmSmallLogo.png"))); // NOI18N
         loginLogo.setText("jLabel2");
         panelLogin.add(loginLogo);
         loginLogo.setBounds(150, 20, 80, 70);
