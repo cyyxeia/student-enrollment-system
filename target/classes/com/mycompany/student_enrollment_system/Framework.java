@@ -120,7 +120,8 @@ public class Framework {
     }
     public void openCollegeAndCourse() {
         collegeCourses = new CollegeCourse(this);
-        collegeCourses.setExtendedState(JFrame.MAXIMIZED_BOTH); collegeCourses.setVisible(true);    
+        collegeCourses.setExtendedState(JFrame.MAXIMIZED_BOTH); collegeCourses.setVisible(true); 
+        collegeCourses.setIconImage(JOPIcon.getImage());
         loadCollegeAndCourse();
         System.out.println("Opened college and courses window");
     }
