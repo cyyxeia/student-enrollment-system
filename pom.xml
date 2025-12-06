@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mycompany</groupId>
+    <groupId>im.final_project.student_enrollment_system</groupId>
     <artifactId>Student_Enrollment_System</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>20251207.0118</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -34,4 +34,6 @@
         <maven.compiler.release>25</maven.compiler.release>
         <exec.mainClass>com.mycompany.student_enrollment_system.Student_Enrollment_System</exec.mainClass>
     </properties>
+    <name>Student Enrollment System</name>
+    <description>Add, Modify, and Delete data from a school oracle-based database.</description>
 </project>

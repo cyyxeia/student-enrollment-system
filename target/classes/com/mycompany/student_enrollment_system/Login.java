@@ -4,19 +4,15 @@
  */
 package com.mycompany.student_enrollment_system;
 
-/**
- *
- * @author ASUS
- */
 public class Login extends javax.swing.JFrame {
     
-//    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
     private String loginPassword;
     private String loginUsername;
     private Framework framework;
     public Login(Framework framework) {
         this.framework = framework;
         initComponents();
+        setTitle("Student Enrollment System");
     }
 
     /**
@@ -28,160 +24,159 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bg = new javax.swing.JPanel();
-        PLM = new javax.swing.JLabel();
-        LogIn = new javax.swing.JPanel();
-        UniveristyName = new javax.swing.JLabel();
-        UniveristyName1 = new javax.swing.JLabel();
-        UNPW = new javax.swing.JPanel();
-        Password = new javax.swing.JLabel();
-        User_name = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        Username = new javax.swing.JTextField();
-        LOGIN = new javax.swing.JButton();
+        loginBackground = new javax.swing.JPanel();
+        panelRightImage = new javax.swing.JLabel();
+        panelLogin = new javax.swing.JPanel();
+        loginLogo = new javax.swing.JLabel();
+        universityTitle1 = new javax.swing.JLabel();
+        universityTitle2 = new javax.swing.JLabel();
+        loginFields = new javax.swing.JPanel();
+        usernameTitle = new javax.swing.JLabel();
+        usernameField = new javax.swing.JTextField();
         usernameNotFound = new javax.swing.JLabel();
+        passwordTitle = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
         passwordIncorrect = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        loginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bg.setLayout(null);
+        loginBackground.setLayout(null);
 
-        PLM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/loginbg.jpg"))); // NOI18N
-        PLM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        bg.add(PLM);
-        PLM.setBounds(760, 150, 372, 450);
+        panelRightImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/loginbg.jpg"))); // NOI18N
+        panelRightImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        loginBackground.add(panelRightImage);
+        panelRightImage.setBounds(760, 150, 372, 450);
 
-        LogIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        LogIn.setLayout(null);
+        panelLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelLogin.setLayout(null);
 
-        UniveristyName.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        UniveristyName.setText("PAMANTASAN NG LUNGSOD");
-        LogIn.add(UniveristyName);
-        UniveristyName.setBounds(50, 110, 290, 20);
+        loginLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
+        loginLogo.setText("jLabel2");
+        panelLogin.add(loginLogo);
+        loginLogo.setBounds(150, 20, 80, 70);
 
-        UniveristyName1.setFont(new java.awt.Font("Georgia", 1, 17)); // NOI18N
-        UniveristyName1.setText("NG MAYNILA");
-        LogIn.add(UniveristyName1);
-        UniveristyName1.setBounds(120, 130, 122, 20);
+        universityTitle1.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        universityTitle1.setText("PAMANTASAN NG LUNGSOD");
+        panelLogin.add(universityTitle1);
+        universityTitle1.setBounds(50, 110, 290, 20);
 
-        UNPW.setOpaque(false);
+        universityTitle2.setFont(new java.awt.Font("Georgia", 1, 17)); // NOI18N
+        universityTitle2.setText("NG MAYNILA");
+        panelLogin.add(universityTitle2);
+        universityTitle2.setBounds(120, 130, 122, 20);
 
-        Password.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        Password.setText("Password");
+        loginFields.setOpaque(false);
 
-        User_name.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        User_name.setText("Username");
+        usernameTitle.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        usernameTitle.setText("Username");
 
-        jPasswordField1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        jPasswordField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPasswordField1.addActionListener(this::jPasswordField1ActionPerformed);
-
-        Username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Username.addActionListener(this::UsernameActionPerformed);
-
-        LOGIN.setBackground(new java.awt.Color(102, 204, 255));
-        LOGIN.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        LOGIN.setForeground(new java.awt.Color(255, 255, 255));
-        LOGIN.setText("LOGIN");
-        LOGIN.addActionListener(this::LOGINActionPerformed);
+        usernameField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        usernameField.addActionListener(this::usernameFieldActionPerformed);
 
         usernameNotFound.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         usernameNotFound.setForeground(new java.awt.Color(255, 51, 51));
         usernameNotFound.setText("Username not found");
         usernameNotFound.setFocusable(false);
 
+        passwordTitle.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        passwordTitle.setText("Password");
+
+        passwordField.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        passwordField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        passwordField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        passwordField.addActionListener(this::passwordFieldActionPerformed);
+
         passwordIncorrect.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         passwordIncorrect.setForeground(new java.awt.Color(255, 51, 51));
         passwordIncorrect.setText("Password incorrect");
         passwordIncorrect.setFocusable(false);
 
-        javax.swing.GroupLayout UNPWLayout = new javax.swing.GroupLayout(UNPW);
-        UNPW.setLayout(UNPWLayout);
-        UNPWLayout.setHorizontalGroup(
-            UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UNPWLayout.createSequentialGroup()
+        loginButton.setBackground(new java.awt.Color(102, 204, 255));
+        loginButton.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginButton.setText("LOGIN");
+        loginButton.addActionListener(this::loginButtonActionPerformed);
+
+        javax.swing.GroupLayout loginFieldsLayout = new javax.swing.GroupLayout(loginFields);
+        loginFields.setLayout(loginFieldsLayout);
+        loginFieldsLayout.setHorizontalGroup(
+            loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginFieldsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordField1)
-                    .addComponent(Username)))
-            .addGroup(UNPWLayout.createSequentialGroup()
+                .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(passwordField)
+                    .addComponent(usernameField)))
+            .addGroup(loginFieldsLayout.createSequentialGroup()
                 .addGap(87, 87, 87)
-                .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 84, Short.MAX_VALUE))
-            .addGroup(UNPWLayout.createSequentialGroup()
+            .addGroup(loginFieldsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UNPWLayout.createSequentialGroup()
-                        .addComponent(User_name)
+                .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginFieldsLayout.createSequentialGroup()
+                        .addComponent(usernameTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(usernameNotFound))
-                    .addGroup(UNPWLayout.createSequentialGroup()
-                        .addComponent(Password)
+                    .addGroup(loginFieldsLayout.createSequentialGroup()
+                        .addComponent(passwordTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(passwordIncorrect)))
                 .addContainerGap())
         );
-        UNPWLayout.setVerticalGroup(
-            UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UNPWLayout.createSequentialGroup()
+        loginFieldsLayout.setVerticalGroup(
+            loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginFieldsLayout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(User_name)
+                .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernameTitle)
                     .addComponent(usernameNotFound))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(UNPWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Password)
+                .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordTitle)
                     .addComponent(passwordIncorrect))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
 
-        LogIn.add(UNPW);
-        UNPW.setBounds(39, 153, 291, 270);
+        panelLogin.add(loginFields);
+        loginFields.setBounds(39, 153, 291, 270);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        LogIn.add(jLabel2);
-        jLabel2.setBounds(150, 20, 80, 70);
+        loginBackground.add(panelLogin);
+        panelLogin.setBounds(390, 150, 370, 450);
 
-        bg.add(LogIn);
-        LogIn.setBounds(390, 150, 370, 450);
-
-        getContentPane().add(bg, java.awt.BorderLayout.CENTER);
+        getContentPane().add(loginBackground, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        loginUsername = Username.getText();
-        loginPassword = new String(jPasswordField1.getPassword());
+        loginUsername = usernameField.getText();
+        loginPassword = new String(passwordField.getPassword());
         framework.loginCheck(loginUsername, loginPassword);
-//        this.dispose();
-    }//GEN-LAST:event_LOGINActionPerformed
+    }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
+    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameActionPerformed
+    }//GEN-LAST:event_usernameFieldActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     public void userNotPassIncorrectTextVisibility(boolean userNotVisibility, boolean passIncorrectVisibility) {
         usernameNotFound.setVisible(userNotVisibility);
         passwordIncorrect.setVisible(passIncorrectVisibility);
     }
     public void clearFields() {
-        Username.setText("");
-        jPasswordField1.setText("");
+        usernameField.setText("");
+        passwordField.setText("");
     }
     /**
      * @param args the command line arguments
@@ -209,19 +204,19 @@ public class Login extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton LOGIN;
-    private javax.swing.JPanel LogIn;
-    private javax.swing.JLabel PLM;
-    private javax.swing.JLabel Password;
-    private javax.swing.JPanel UNPW;
-    private javax.swing.JLabel UniveristyName;
-    private javax.swing.JLabel UniveristyName1;
-    private javax.swing.JLabel User_name;
-    private javax.swing.JTextField Username;
-    private javax.swing.JPanel bg;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPanel loginBackground;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JPanel loginFields;
+    private javax.swing.JLabel loginLogo;
+    private javax.swing.JPanel panelLogin;
+    private javax.swing.JLabel panelRightImage;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordIncorrect;
+    private javax.swing.JLabel passwordTitle;
+    private javax.swing.JLabel universityTitle1;
+    private javax.swing.JLabel universityTitle2;
+    private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameNotFound;
+    private javax.swing.JLabel usernameTitle;
     // End of variables declaration//GEN-END:variables
 }

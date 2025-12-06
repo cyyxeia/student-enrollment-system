@@ -9,26 +9,21 @@ import java.sql.*;
 import javax.swing.*;
 import java.util.*;
 import org.jdatepicker.impl.*;
-/**
- *
- * @author 星野一歌
- */
 public class Framework {
     private Connection connection;
     private boolean isConnected=false;
     private Login login;
-    private homePage homepage;
-    private studentdashboard sdb;
-    private enrollment2 enrollment;
-    private subject_grade subject;
-    private collegeandcourses collegeCourses;
-    private faculty_profs_employee faculty;
+    private Student sdb;
+    private Enrollment enrollment;
+    private Subject subject;
+    private CollegeCourse collegeCourses;
+    private Faculty faculty;
     private boolean isLoggedIn=false;
     private String accountUsername;
     private String accountPassword; //I know it's unsafe, ignore
     private String accountLevel;
     ImageIcon JOPIcon = new ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"));
-    
+
     public void startDatabaseConnection(String connectionUrl, String connectionUsername, String connectionPassword) {
         try {connection = DriverManager.getConnection(connectionUrl, connectionUsername, connectionPassword);
         isConnected=true;
@@ -41,6 +36,7 @@ public class Framework {
     public void loginOpen() {
         login = new Login(this);
         login.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        login.setIconImage(JOPIcon.getImage());
         login.setVisible(true);
         login.userNotPassIncorrectTextVisibility(false, false);
         System.out.println("Opened login window");
@@ -79,7 +75,6 @@ public class Framework {
             System.out.println("Set auto commit to false and read-only to false.");
         }
         catch (SQLException e) {e.printStackTrace();}
-        
     }
     public void commit() {
         try {
@@ -102,39 +97,38 @@ public class Framework {
         }
         catch (SQLException e) {e.printStackTrace();System.out.println("Database is null or closed already.");}
     }
-    public void openHomepage() {
-        homepage = new homePage(this, this.connection);
-        homepage.setExtendedState(JFrame.MAXIMIZED_BOTH); homepage.setVisible(true);
-        
-        System.out.println("Opened homepage window");
-    }
     public void openStudent() {
-        sdb = new studentdashboard(this);
+        sdb = new Student(this);
         sdb.setExtendedState(JFrame.MAXIMIZED_BOTH); sdb.setVisible(true);
+        sdb.setIconImage(JOPIcon.getImage());
         loadStudent();
         System.out.println("Opened student dashboard window");
     }
     public void openEnrollment() {
-        enrollment = new enrollment2(this);
+        enrollment = new Enrollment(this);
         enrollment.setExtendedState(JFrame.MAXIMIZED_BOTH); enrollment.setVisible(true);
+        enrollment.setIconImage(JOPIcon.getImage());
         loadEnrollment();
         System.out.println("Opened enrollment window");
     }
     public void openSubject() {
-        subject = new subject_grade(this);
+        subject = new Subject(this);
         subject.setExtendedState(JFrame.MAXIMIZED_BOTH); subject.setVisible(true);
+        subject.setIconImage(JOPIcon.getImage());
         loadSubject();
         System.out.println("Opened subject window");
     }
     public void openCollegeAndCourse() {
-        collegeCourses = new collegeandcourses(this);
-        collegeCourses.setExtendedState(JFrame.MAXIMIZED_BOTH); collegeCourses.setVisible(true);    
+        collegeCourses = new CollegeCourse(this);
+        collegeCourses.setExtendedState(JFrame.MAXIMIZED_BOTH); collegeCourses.setVisible(true); 
+        collegeCourses.setIconImage(JOPIcon.getImage());
         loadCollegeAndCourse();
         System.out.println("Opened college and courses window");
     }
     public void openFaculty() {
-        faculty = new faculty_profs_employee(this);
+        faculty = new Faculty(this);
         faculty.setExtendedState(JFrame.MAXIMIZED_BOTH); faculty.setVisible(true);
+        faculty.setIconImage(JOPIcon.getImage());
         loadFaculty();
         System.out.println("Opened faculty window");
     }
@@ -206,9 +200,6 @@ public class Framework {
             }
         }
         catch (SQLException e) {e.printStackTrace();System.out.println("Failed to load student");}
-    }
-    public void loadHomepage() {
-        
     }
     public void addNewRow(String tableName) {
         if (accountLevel.equals("student")) {
@@ -664,26 +655,23 @@ public class Framework {
 
     private String findIdValueFromTable(JTable table, int selectedRow, String idColumn) {
        int modelRow = table.convertRowIndexToModel(selectedRow);
-
-       // 1) Try to find by model column name (case-insensitive)
+       
        for (int i = 0; i < table.getModel().getColumnCount(); i++) {
           if (table.getModel().getColumnName(i).equalsIgnoreCase(idColumn)) {
              Object v = table.getModel().getValueAt(modelRow, i);
              return v == null ? null : v.toString();
           }
        }
-
-       // 2) Try to find by visible column identifier/name in columnModel (some UIs set header different)
+       
        try {
           int viewIndex = table.getColumnModel().getColumnIndex(idColumn);
           int modelIndex = table.convertColumnIndexToModel(viewIndex);
           Object v = table.getModel().getValueAt(modelRow, modelIndex);
           return v == null ? null : v.toString();
        } catch (IllegalArgumentException ignored) {
-          // column not found in view
+          
        }
-
-       // 3) Fallback: use first column of model (common convention)
+       
        if (table.getModel().getColumnCount() > 0) {
           Object v = table.getModel().getValueAt(modelRow, 0);
           return v == null ? null : v.toString();
