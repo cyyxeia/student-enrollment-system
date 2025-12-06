@@ -4,6 +4,9 @@
  */
 package com.mycompany.student_enrollment_system;
 
+import java.awt.event.ActionListener;
+import java.sql.*;
+import javax.swing.*;
 /**
  *
  * @author Lenovo x270
@@ -12,9 +15,12 @@ public class homePage extends javax.swing.JFrame {
     
 //    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(homePage.class.getName());
     private Framework framework;
-    public homePage(Framework framework) {
+    private Connection conn;
+    public homePage(Framework framework, Connection conn) {
         this.framework = framework;
+        this.conn = conn;
         initComponents();
+        setupFilters();
     }
 
     /**
@@ -43,7 +49,6 @@ public class homePage extends javax.swing.JFrame {
         buttons = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
@@ -59,33 +64,22 @@ public class homePage extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         spacer1 = new javax.swing.JLabel();
         spacer3 = new javax.swing.JLabel();
-        yearLevel1 = new javax.swing.JComboBox<>();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        student_names1 = new javax.swing.JComboBox<>();
-        searchButton1 = new javax.swing.JButton();
-        clearButton1 = new javax.swing.JButton();
+        schoolYear = new javax.swing.JComboBox<>();
+        statusRegular = new javax.swing.JRadioButton();
+        statusIrregular = new javax.swing.JRadioButton();
+        block = new javax.swing.JComboBox<>();
+        semester1 = new javax.swing.JRadioButton();
+        semester2 = new javax.swing.JRadioButton();
+        semester3 = new javax.swing.JRadioButton();
+        studentName = new javax.swing.JComboBox<>();
+        searchButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
         rightPanelParent = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        rightContainer = new javax.swing.JPanel();
+        labelBasic = new javax.swing.JLabel();
+        labelID = new javax.swing.JLabel();
+        labelID1 = new javax.swing.JLabel();
+        labelName = new javax.swing.JLabel();
+        labelName1 = new javax.swing.JLabel();
 
         jButton4.setText("jButton4");
 
@@ -142,13 +136,8 @@ public class homePage extends javax.swing.JFrame {
         jButton3.addActionListener(this::jButton3ActionPerformed);
         buttons.add(jButton3);
 
-        jButton8.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jButton8.setText("Schedule");
-        jButton8.addActionListener(this::jButton8ActionPerformed);
-        buttons.add(jButton8);
-
         jButton6.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jButton6.setText("Subject & Grade");
+        jButton6.setText("Subject");
         jButton6.addActionListener(this::jButton6ActionPerformed);
         buttons.add(jButton6);
 
@@ -257,105 +246,107 @@ public class homePage extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
         leftPanelParent.add(spacer3, gridBagConstraints);
 
-        yearLevel1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        yearLevel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select School Year-", "2024 - 2025", "2023 - 2024", "2022 - 2023", "Veterans", " " }));
-        yearLevel1.addActionListener(this::yearLevel1ActionPerformed);
+        schoolYear.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        schoolYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select School Year-", "2024 - 2025", "2023 - 2024", "2022 - 2023", "Veterans", " " }));
+        schoolYear.addActionListener(this::schoolYearActionPerformed);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 35, 25);
-        leftPanelParent.add(yearLevel1, gridBagConstraints);
+        leftPanelParent.add(schoolYear, gridBagConstraints);
 
-        status.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton3.setText("Regular");
-        jRadioButton3.addActionListener(this::jRadioButton3ActionPerformed);
+        status.add(statusRegular);
+        statusRegular.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        statusRegular.setText("Regular");
+        statusRegular.addActionListener(this::statusRegularActionPerformed);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(-30, 0, 0, 135);
-        leftPanelParent.add(jRadioButton3, gridBagConstraints);
+        leftPanelParent.add(statusRegular, gridBagConstraints);
 
-        status.add(jRadioButton7);
-        jRadioButton7.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton7.setText("Irregular");
+        status.add(statusIrregular);
+        statusIrregular.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        statusIrregular.setText("Irregular");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(-35, 120, 0, 70);
-        leftPanelParent.add(jRadioButton7, gridBagConstraints);
+        leftPanelParent.add(statusIrregular, gridBagConstraints);
 
-        jComboBox2.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jComboBox2.setMaximumRowCount(2);
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Block-", "Block 1", "Block 2", "Block 3", "Block 4", "Block 5", "Block 6" }));
+        block.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        block.setMaximumRowCount(2);
+        block.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Block-", "Block 1", "Block 2", "Block 3", "Block 4", "Block 5", "Block 6" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 30, 140);
-        leftPanelParent.add(jComboBox2, gridBagConstraints);
+        leftPanelParent.add(block, gridBagConstraints);
 
-        semester.add(jRadioButton8);
-        jRadioButton8.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton8.setText("1st Sem");
+        semester.add(semester1);
+        semester1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        semester1.setText("1st Sem");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 210);
-        leftPanelParent.add(jRadioButton8, gridBagConstraints);
+        leftPanelParent.add(semester1, gridBagConstraints);
 
-        semester.add(jRadioButton9);
-        jRadioButton9.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton9.setText("2nd Sem");
+        semester.add(semester2);
+        semester2.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        semester2.setText("2nd Sem");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(-25, 20, 0, 20);
-        leftPanelParent.add(jRadioButton9, gridBagConstraints);
+        leftPanelParent.add(semester2, gridBagConstraints);
 
-        semester.add(jRadioButton10);
-        jRadioButton10.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jRadioButton10.setText("Summer");
+        semester.add(semester3);
+        semester3.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        semester3.setText("Summer");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 200, 0, 0);
-        leftPanelParent.add(jRadioButton10, gridBagConstraints);
+        leftPanelParent.add(semester3, gridBagConstraints);
 
-        student_names1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        student_names1.setMaximumRowCount(5);
-        student_names1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Student-", "Cyrus Kent B. De Guzman", "John Devonaire L. Garcia", "Nheil Jewel F. Blanche", "Troi Isaac V. Limin", "JP \"The Legend\" Medalla", "Curien Del Rosario", "Lorejane Dela Cruz", " " }));
-        student_names1.addActionListener(this::student_names1ActionPerformed);
+        studentName.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        studentName.setMaximumRowCount(5);
+        studentName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Student-", "Cyrus Kent B. De Guzman", "John Devonaire L. Garcia", "Nheil Jewel F. Blanche", "Troi Isaac V. Limin", "JP \"The Legend\" Medalla", "Curien Del Rosario", "Lorejane Dela Cruz", " " }));
+        studentName.addActionListener(this::studentNameActionPerformed);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
-        leftPanelParent.add(student_names1, gridBagConstraints);
+        leftPanelParent.add(studentName, gridBagConstraints);
 
-        searchButton1.setBackground(new java.awt.Color(102, 255, 102));
-        searchButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        searchButton1.setText("Search");
+        searchButton.setBackground(new java.awt.Color(102, 255, 102));
+        searchButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        searchButton.setText("Search");
+        searchButton.addActionListener(this::searchButtonActionPerformed);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = new java.awt.Insets(0, -200, 50, 0);
-        leftPanelParent.add(searchButton1, gridBagConstraints);
+        leftPanelParent.add(searchButton, gridBagConstraints);
 
-        clearButton1.setBackground(new java.awt.Color(255, 0, 0));
-        clearButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        clearButton1.setText("Clear");
+        clearButton.setBackground(new java.awt.Color(255, 0, 0));
+        clearButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        clearButton.setText("Clear");
+        clearButton.addActionListener(this::clearButtonActionPerformed);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = new java.awt.Insets(0, 50, 50, 0);
-        leftPanelParent.add(clearButton1, gridBagConstraints);
+        leftPanelParent.add(clearButton, gridBagConstraints);
 
         leftContainer.add(leftPanelParent, java.awt.BorderLayout.CENTER);
 
@@ -364,153 +355,57 @@ public class homePage extends javax.swing.JFrame {
         rightPanelParent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         rightPanelParent.setLayout(new java.awt.GridBagLayout());
 
-        jLabel22.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel22.setText("Student ID:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel22, gridBagConstraints);
-
-        jLabel23.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel23.setText("Program:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel23, gridBagConstraints);
-
-        jLabel24.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel24.setText("College:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel24, gridBagConstraints);
-
-        jLabel25.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel25.setText("Email:");
-        jLabel25.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel25, gridBagConstraints);
-
-        jLabel26.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel26.setText("Year Level:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel26, gridBagConstraints);
-
-        jLabel28.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel28.setText("202410508");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel28, gridBagConstraints);
-
-        jLabel29.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel29.setText("Bachelor of Science in Computer Science");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel29, gridBagConstraints);
-
-        jLabel30.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel30.setText("CISTM");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel30, gridBagConstraints);
-
-        jLabel31.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel31.setText("cyrus@gmail.com");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel31, gridBagConstraints);
-
-        jLabel32.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel32.setText("Year Level:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel32, gridBagConstraints);
-
-        jLabel33.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel33.setText("Second Year");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        rightPanelParent.add(jLabel33, gridBagConstraints);
-
-        jLabel34.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel34.setText("Enrollment Status:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 55, 0);
-        rightPanelParent.add(jLabel34, gridBagConstraints);
-
-        jLabel35.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jLabel35.setText("Enrollment");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 55, 0);
-        rightPanelParent.add(jLabel35, gridBagConstraints);
-
-        jLabel36.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
-        jLabel36.setText("Basic Information");
+        labelBasic.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        labelBasic.setText("Basic Information");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 45, 0);
-        rightPanelParent.add(jLabel36, gridBagConstraints);
+        rightPanelParent.add(labelBasic, gridBagConstraints);
+
+        labelID.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        labelID.setText("Student ID:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
+        rightPanelParent.add(labelID, gridBagConstraints);
+
+        labelID1.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        labelID1.setText("no search yet...");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
+        rightPanelParent.add(labelID1, gridBagConstraints);
+
+        labelName.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        labelName.setText("Full Name:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
+        rightPanelParent.add(labelName, gridBagConstraints);
+
+        labelName1.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        labelName1.setText("no search yet...");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
+        rightPanelParent.add(labelName1, gridBagConstraints);
 
         mainContentPanel.add(rightPanelParent);
 
         getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
-
-        jPanel3.setLayout(new java.awt.BorderLayout());
-        getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
-        getContentPane().add(rightContainer, java.awt.BorderLayout.LINE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -527,7 +422,7 @@ public class homePage extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        framework.openSubjectAndGrade();
+        framework.openSubject();
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -537,35 +432,375 @@ public class homePage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-        framework.openSchedule();
-        this.dispose();
-    }//GEN-LAST:event_jButton8ActionPerformed
-
     private void facultyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facultyButtonActionPerformed
         // TODO add your handling code here:
         framework.openFaculty();
         this.dispose();
     }//GEN-LAST:event_facultyButtonActionPerformed
 
-    private void yearLevel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearLevel1ActionPerformed
+    private void schoolYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolYearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_yearLevel1ActionPerformed
+    }//GEN-LAST:event_schoolYearActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void statusRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusRegularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_statusRegularActionPerformed
 
-    private void student_names1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_names1ActionPerformed
+    private void studentNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_student_names1ActionPerformed
+    }//GEN-LAST:event_studentNameActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         framework.openEnrollment();
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+    // Clear existing content
+        rightPanelParent.removeAll();
+        rightPanelParent.revalidate();
+        rightPanelParent.repaint();
+
+        try {
+            // Extract selected values
+            String student = (String) studentName.getSelectedItem();
+            if (student == null || student.trim().isEmpty()) return;
+
+            int firstSpace = student.indexOf(" ");
+            String firstName = (firstSpace == -1) ? student : student.substring(0, firstSpace);
+            String lastName  = (firstSpace == -1) ? "" : student.substring(firstSpace + 1);
+
+            String selectedBlock = (String) block.getSelectedItem();
+            String selectedSemester = getSelectedSemester();
+            String selectedSchoolYear = (String) schoolYear.getSelectedItem();
+            String selectedType = statusRegular.isSelected() ? "Regular" : statusIrregular.isSelected() ? "Irregular" : null;
+
+            if (selectedBlock == null || selectedSemester == null || selectedSchoolYear == null || selectedType == null) {
+                JOptionPane.showMessageDialog(this, "Please select all filters first!");
+                return;
+            }
+
+            // Final SQL query
+            String sql = "SELECT stu.student_id, stu.s_firstname, stu.s_lastname, stu.college, stu.place_of_birth, " +
+                         "enr.block_no, sub.semester, sub.school_year, enr.student_type " +
+                         "FROM student stu " +
+                         "INNER JOIN enrollment enr ON stu.student_id = enr.student_id " +
+                         "INNER JOIN subject sub ON enr.subject_code = sub.subject_code " +
+                         "WHERE stu.deleted='F' " +
+                         "AND stu.s_firstname=? " +
+                         "AND stu.s_lastname=? " +
+                         "AND enr.block_no=? " +
+                         "AND sub.semester=? " +
+                         "AND sub.school_year=? " +
+                         "AND enr.student_type=?";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ps.setString(3, selectedBlock);
+            ps.setString(4, selectedSemester);
+            ps.setString(5, selectedSchoolYear);
+            ps.setString(6, selectedType);
+
+            ResultSet rs = ps.executeQuery();
+
+            // Store the "common values" from first row
+            String studentID = null;
+            String studentFullName = null;
+            String college = null;
+            String placeOfBirth = null;
+
+            if (rs.next()) {
+                studentID = rs.getString("student_id");
+                studentFullName = rs.getString("s_firstname") + " " + rs.getString("s_lastname");
+                college = rs.getString("college");
+                placeOfBirth = rs.getString("place_of_birth");
+
+                // Add labels for common data
+                rightPanelParent.add(new JLabel("Student ID : " + studentID));
+                rightPanelParent.add(new JLabel("Student Name : " + studentFullName));
+                rightPanelParent.add(new JLabel("College : " + college));
+                rightPanelParent.add(new JLabel("Place of Birth : " + placeOfBirth));
+                rightPanelParent.add(new JLabel("Block : " + rs.getString("block_no")));
+                rightPanelParent.add(new JLabel("Semester : " + rs.getString("semester")));
+                rightPanelParent.add(new JLabel("School Year : " + rs.getString("school_year")));
+                rightPanelParent.add(new JLabel("Status : " + rs.getString("student_type")));
+
+                // If you want, you could also add a scrollable table for subjects that differ per row
+            }
+
+            rightPanelParent.revalidate();
+            rightPanelParent.repaint();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error fetching student data!");
+        }
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+private void setupFilters() {
+    // Initially, populate student combo box
+    populateStudents();
+    
+    // Add listener for student selection
+    studentName.addActionListener(e -> {
+        String selectedStudent = (String) studentName.getSelectedItem();
+        if (selectedStudent != null) {
+            populateBlocks(selectedStudent);
+            semester1.setEnabled(false);
+            semester2.setEnabled(false);
+            semester3.setEnabled(false);
+            schoolYear.setEnabled(false);
+            statusRegular.setEnabled(false);
+            statusIrregular.setEnabled(false);
+        }
+    });
+
+    // Listener for block
+    block.addActionListener(e -> {
+        String selectedStudent = (String) studentName.getSelectedItem();
+        String selectedBlock = (String) block.getSelectedItem();
+        if (selectedStudent != null && selectedBlock != null) {
+            populateSemesters(selectedStudent, selectedBlock);
+            schoolYear.setEnabled(false);
+            statusRegular.setEnabled(false);
+            statusIrregular.setEnabled(false);
+        }
+    });
+
+    // Listener for semester
+    ActionListener semesterListener = e -> {
+        String selectedStudent = (String) studentName.getSelectedItem();
+        String selectedBlock = (String) block.getSelectedItem();
+        String selectedSemester = getSelectedSemester();
+        if (selectedSemester != null) {
+            populateSchoolYears(selectedStudent, selectedBlock, selectedSemester);
+            statusRegular.setEnabled(false);
+            statusIrregular.setEnabled(false);
+        }
+    };
+    semester1.addActionListener(semesterListener);
+    semester2.addActionListener(semesterListener);
+    semester3.addActionListener(semesterListener);
+
+    // Listener for school year
+    schoolYear.addActionListener(e -> {
+        String selectedStudent = (String) studentName.getSelectedItem();
+        String selectedBlock = (String) block.getSelectedItem();
+        String selectedSemester = getSelectedSemester();
+        String selectedYear = (String) schoolYear.getSelectedItem();
+        if (selectedYear != null) {
+            populateStatus(selectedStudent, selectedBlock, selectedSemester, selectedYear);
+        }
+    });
+}
+
+private void populateStudents() {
+    try {
+        ResultSet rs = conn.createStatement().executeQuery(
+            "SELECT DISTINCT s_firstname || ' ' || s_lastname AS full_name FROM student WHERE deleted='F'"
+        );
+        studentName.removeAllItems();
+        while (rs.next()) {
+            studentName.addItem(rs.getString("full_name"));
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+
+private String getSelectedSemester() {
+    if (semester1.isSelected()) return "1";
+    if (semester2.isSelected()) return "2";
+    if (semester3.isSelected()) return "3";
+    return null;
+}
+private void populateBlocks(String student) {
+    try {
+        System.out.println("populateBlocks called with student: " + student);
+        if (student == null || student.trim().isEmpty()) return;
+
+        // Correct split: first word = firstName, rest = lastName
+        int firstSpace = student.indexOf(" ");
+        String firstName = (firstSpace == -1) ? student : student.substring(0, firstSpace);
+        String lastName  = (firstSpace == -1) ? "" : student.substring(firstSpace + 1);
+        System.out.println("Corrected firstName: '" + firstName + "', lastName: '" + lastName + "'");
+
+        String sql = "SELECT DISTINCT enr.block_no " +
+                     "FROM student stu " +
+                     "INNER JOIN enrollment enr ON stu.student_id = enr.student_id " +
+                     "WHERE stu.s_firstname=? AND stu.s_lastname=? AND stu.deleted='F' " +
+                     "ORDER BY enr.block_no";
+        System.out.println("SQL: " + sql);
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, firstName);
+        ps.setString(2, lastName);
+
+        ResultSet rs = ps.executeQuery();
+        block.removeAllItems();
+        boolean found = false;
+
+        while (rs.next()) {
+            String b = rs.getString("block_no");
+            System.out.println("Found block: " + b);
+            block.addItem(b);
+            found = true;
+        }
+
+        if (!found) {
+            System.out.println("No blocks found for this student!");
+        }
+
+        block.setEnabled(found);
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+private void populateSemesters(String student, String blockNo) {
+    try {
+        System.out.println("populateSemesters called with student: " + student + ", block: " + blockNo);
+
+        // Correct first/last name splitting
+        int firstSpace = student.indexOf(" ");
+        String firstName = (firstSpace == -1) ? student : student.substring(0, firstSpace);
+        String lastName  = (firstSpace == -1) ? "" : student.substring(firstSpace + 1);
+        System.out.println("Corrected firstName: '" + firstName + "', lastName: '" + lastName + "'");
+
+        String sql = "SELECT DISTINCT sub.semester FROM student stu " +
+                     "INNER JOIN enrollment enr ON stu.student_id = enr.student_id " +
+                     "INNER JOIN subject sub ON enr.subject_code = sub.subject_code " +
+                     "WHERE stu.s_firstname=? AND stu.s_lastname=? AND stu.deleted='F' AND enr.block_no=?";
+        System.out.println("SQL: " + sql);
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, firstName);
+        ps.setString(2, lastName);
+        ps.setString(3, blockNo);
+
+        ResultSet rs = ps.executeQuery();
+
+        // Disable all semesters first
+        semester1.setEnabled(false);
+        semester2.setEnabled(false);
+        semester3.setEnabled(false);
+
+        boolean found = false;
+        while (rs.next()) {
+            String sem = rs.getString("semester");
+            System.out.println("Found semester: " + sem);
+            switch (sem) {
+                case "1": semester1.setEnabled(true); break;
+                case "2": semester2.setEnabled(true); break;
+                case "3": semester3.setEnabled(true); break;
+            }
+            found = true;
+        }
+
+        if (!found) System.out.println("No semesters found for this student and block!");
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+private void populateSchoolYears(String student, String blockNo, String semester) {
+    try {
+        System.out.println("populateSchoolYears called with student: " + student + ", block: " + blockNo + ", semester: " + semester);
+
+        // Correct first/last name splitting
+        int firstSpace = student.indexOf(" ");
+        String firstName = (firstSpace == -1) ? student : student.substring(0, firstSpace);
+        String lastName  = (firstSpace == -1) ? "" : student.substring(firstSpace + 1);
+        System.out.println("Corrected firstName: '" + firstName + "', lastName: '" + lastName + "'");
+
+        String sql = "SELECT DISTINCT sub.school_year FROM student stu " +
+                     "INNER JOIN enrollment enr ON stu.student_id = enr.student_id " +
+                     "INNER JOIN subject sub ON enr.subject_code = sub.subject_code " +
+                     "WHERE stu.s_firstname=? AND stu.s_lastname=? AND stu.deleted='F' AND enr.block_no=? AND sub.semester=?";
+        System.out.println("SQL: " + sql);
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, firstName);
+        ps.setString(2, lastName);
+        ps.setString(3, blockNo);
+        ps.setString(4, semester);
+
+        ResultSet rs = ps.executeQuery();
+
+        schoolYear.removeAllItems();
+        boolean found = false;
+
+        while (rs.next()) {
+            String year = rs.getString("school_year");
+            System.out.println("Found school year: " + year);
+            schoolYear.addItem(year);
+            found = true;
+        }
+
+        if (!found) System.out.println("No school years found for this student/block/semester!");
+        schoolYear.setEnabled(found);
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+private void populateStatus(String student, String blockNo, String semester, String year) {
+    try {
+        System.out.println("populateStatus called with student: " + student + ", block: " + blockNo + ", semester: " + semester + ", year: " + year);
+
+        // Correct first/last name splitting
+        int firstSpace = student.indexOf(" ");
+        String firstName = (firstSpace == -1) ? student : student.substring(0, firstSpace);
+        String lastName  = (firstSpace == -1) ? "" : student.substring(firstSpace + 1);
+        System.out.println("Corrected firstName: '" + firstName + "', lastName: '" + lastName + "'");
+
+        String sql = "SELECT DISTINCT enr.student_type FROM student stu " +
+                     "INNER JOIN enrollment enr ON stu.student_id = enr.student_id " +
+                     "INNER JOIN subject sub ON enr.subject_code = sub.subject_code " +
+                     "WHERE stu.s_firstname=? AND stu.s_lastname=? AND stu.deleted='F' AND enr.block_no=? AND sub.semester=? AND sub.school_year=?";
+        System.out.println("SQL: " + sql);
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, firstName);
+        ps.setString(2, lastName);
+        ps.setString(3, blockNo);
+        ps.setString(4, semester);
+        ps.setString(5, year);
+
+        ResultSet rs = ps.executeQuery();
+
+        statusRegular.setEnabled(false);
+        statusIrregular.setEnabled(false);
+
+        boolean found = false;
+        while (rs.next()) {
+            String type = rs.getString("student_type");
+            System.out.println("Found student type: " + type);
+
+            // Handle case-insensitive matches and trim spaces
+            if ("Regular".equalsIgnoreCase(type != null ? type.trim() : "")) statusRegular.setEnabled(true);
+            if ("Irregular".equalsIgnoreCase(type != null ? type.trim() : "")) statusIrregular.setEnabled(true);
+
+            found = true;
+        }
+
+        if (!found) System.out.println("No status found for this student/block/semester/year!");
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+
+
+
+
 
     /**
      * @param args the command line arguments
@@ -593,8 +828,9 @@ public class homePage extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> block;
     private javax.swing.JPanel buttons;
-    private javax.swing.JButton clearButton1;
+    private javax.swing.JButton clearButton;
     private javax.swing.JButton facultyButton;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JButton home_dashboardButton;
@@ -605,52 +841,39 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JLabel labelBasic;
+    private javax.swing.JLabel labelID;
+    private javax.swing.JLabel labelID1;
+    private javax.swing.JLabel labelName;
+    private javax.swing.JLabel labelName1;
     private javax.swing.JPanel leftContainer;
     private javax.swing.JPanel leftPanelParent;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
-    private javax.swing.JPanel rightContainer;
     private javax.swing.JPanel rightPanelParent;
     private javax.swing.JLabel rightlogo;
     private javax.swing.JLabel schoolName;
+    private javax.swing.JComboBox<String> schoolYear;
     private javax.swing.JPanel school_name;
-    private javax.swing.JButton searchButton1;
+    private javax.swing.JButton searchButton;
     private javax.swing.ButtonGroup semester;
+    private javax.swing.JRadioButton semester1;
+    private javax.swing.JRadioButton semester2;
+    private javax.swing.JRadioButton semester3;
     private javax.swing.JLabel spacer1;
     private javax.swing.JLabel spacer3;
     private javax.swing.ButtonGroup status;
+    private javax.swing.JRadioButton statusIrregular;
+    private javax.swing.JRadioButton statusRegular;
     private javax.swing.JPanel studentInfoandIcon1;
-    private javax.swing.JComboBox<String> student_names1;
-    private javax.swing.JComboBox<String> yearLevel1;
+    private javax.swing.JComboBox<String> studentName;
     // End of variables declaration//GEN-END:variables
 }

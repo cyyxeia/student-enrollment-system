@@ -4,6 +4,9 @@
  */
 package com.mycompany.student_enrollment_system;
 
+import java.sql.Date;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lenovo x270
@@ -12,9 +15,11 @@ public class enrollment2 extends javax.swing.JFrame {
     
 //    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(enrollment2.class.getName());
     private Framework framework;
+    private DefaultTableModel model;
     public enrollment2(Framework framework) {
         this.framework = framework;
         initComponents();
+        model = (DefaultTableModel) enrollmentTable.getModel();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -24,7 +29,6 @@ public class enrollment2 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         status = new javax.swing.ButtonGroup();
         semester = new javax.swing.ButtonGroup();
@@ -34,23 +38,18 @@ public class enrollment2 extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         school_name = new javax.swing.JPanel();
-        Dashboard_button = new javax.swing.JButton();
         leftlogo = new javax.swing.JLabel();
         schoolName = new javax.swing.JLabel();
         rightlogo = new javax.swing.JLabel();
-        Variable_button = new javax.swing.JButton();
         buttons = new javax.swing.JPanel();
         studentButton = new javax.swing.JButton();
         enrollmentButton = new javax.swing.JButton();
-        homeButton = new javax.swing.JButton();
+        Variable_button = new javax.swing.JButton();
         subject_gradeButton = new javax.swing.JButton();
         college_courseButton = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
-        tablesPanel = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        enrollmentTable = new javax.swing.JTable();
         footerPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -70,13 +69,6 @@ public class enrollment2 extends javax.swing.JFrame {
         school_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         school_name.setLayout(new java.awt.GridBagLayout());
 
-        Dashboard_button.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
-        Dashboard_button.setText("Dashboard");
-        Dashboard_button.addActionListener(this::Dashboard_buttonActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 130);
-        school_name.add(Dashboard_button, gridBagConstraints);
-
         leftlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         leftlogo.setText(" ");
         school_name.add(leftlogo, new java.awt.GridBagConstraints());
@@ -88,13 +80,6 @@ public class enrollment2 extends javax.swing.JFrame {
         rightlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         rightlogo.setText(" ");
         school_name.add(rightlogo, new java.awt.GridBagConstraints());
-
-        Variable_button.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
-        Variable_button.setText("Faculty");
-        Variable_button.addActionListener(this::Variable_buttonActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 130, 0, 0);
-        school_name.add(Variable_button, gridBagConstraints);
 
         headerPanel.add(school_name, java.awt.BorderLayout.CENTER);
 
@@ -110,13 +95,13 @@ public class enrollment2 extends javax.swing.JFrame {
         enrollmentButton.setText("Enrollment");
         buttons.add(enrollmentButton);
 
-        homeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        homeButton.setText("Schedule");
-        homeButton.addActionListener(this::homeButtonActionPerformed);
-        buttons.add(homeButton);
+        Variable_button.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
+        Variable_button.setText("Faculty");
+        Variable_button.addActionListener(this::Variable_buttonActionPerformed);
+        buttons.add(Variable_button);
 
         subject_gradeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        subject_gradeButton.setText("Subject & Grade");
+        subject_gradeButton.setText("Subject");
         subject_gradeButton.addActionListener(this::subject_gradeButtonActionPerformed);
         buttons.add(subject_gradeButton);
 
@@ -133,60 +118,32 @@ public class enrollment2 extends javax.swing.JFrame {
         mainContentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         mainContentPanel.setLayout(new java.awt.BorderLayout());
 
-        tablesPanel.setLayout(new java.awt.GridLayout(2, 1));
-
-        jTable3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable3.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        enrollmentTable.setAutoCreateRowSorter(true);
+        enrollmentTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        enrollmentTable.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        enrollmentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"2024-2025", "1", "BSCS", "202410508", "DE GUZMAN, Cyrus Kent B.", "Regular"}
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "School Year", "Semester", "Program", "Student Number", "Student Name", "Status"
+                "Student ID", "Student Name", "Block No", "Subject Code", "Subject Name", "Student Type", "Date Enrolled", "Grade"
             }
-        ));
-        jTable3.setCellSelectionEnabled(true);
-        jTable3.setPreferredSize(new java.awt.Dimension(1000, 800));
-        jTable3.setShowGrid(false);
-        jTable3.setShowHorizontalLines(true);
-        jTable3.setShowVerticalLines(true);
-        jScrollPane3.setViewportView(jTable3);
-        if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable3.getColumnModel().getColumn(1).setPreferredWidth(20);
-            jTable3.getColumnModel().getColumn(2).setPreferredWidth(10);
-            jTable3.getColumnModel().getColumn(3).setPreferredWidth(20);
-            jTable3.getColumnModel().getColumn(5).setPreferredWidth(20);
-        }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
 
-        tablesPanel.add(jScrollPane3);
-
-        jTable5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable5.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"ICC 0102", "Interdisiplinaryong Pagbasa at Pagsulat Tungo sa Mabisang Pagpapahayag", "4:00 pm - 9:00 pm - F", "CL 4", "REGALA, Richard"}
-            },
-            new String [] {
-                "Subject Code", "Subject Title", "Schedule", "Room", "Professor"
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
-        ));
-        jTable5.setCellSelectionEnabled(true);
-        jTable5.setPreferredSize(new java.awt.Dimension(1000, 800));
-        jTable5.setShowGrid(false);
-        jTable5.setShowHorizontalLines(true);
-        jTable5.setShowVerticalLines(true);
-        jScrollPane5.setViewportView(jTable5);
-        if (jTable5.getColumnModel().getColumnCount() > 0) {
-            jTable5.getColumnModel().getColumn(0).setPreferredWidth(5);
-            jTable5.getColumnModel().getColumn(1).setPreferredWidth(400);
-            jTable5.getColumnModel().getColumn(2).setPreferredWidth(50);
-            jTable5.getColumnModel().getColumn(3).setPreferredWidth(5);
-        }
+        });
+        enrollmentTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        enrollmentTable.setPreferredSize(new java.awt.Dimension(1000, 800));
+        enrollmentTable.setShowGrid(true);
+        enrollmentTable.setSurrendersFocusOnKeystroke(true);
+        jScrollPane1.setViewportView(enrollmentTable);
 
-        tablesPanel.add(jScrollPane5);
-
-        mainContentPanel.add(tablesPanel, java.awt.BorderLayout.CENTER);
+        mainContentPanel.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
 
@@ -196,6 +153,7 @@ public class enrollment2 extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton1.setText("ADD");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addActionListener(this::jButton1ActionPerformed);
         footerPanel.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
@@ -217,12 +175,6 @@ public class enrollment2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
-        framework.openSchedule();
-        this.dispose();
-    }//GEN-LAST:event_homeButtonActionPerformed
-
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
         // TODO add your handling code here:
         framework.openStudent();
@@ -231,7 +183,7 @@ public class enrollment2 extends javax.swing.JFrame {
 
     private void subject_gradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subject_gradeButtonActionPerformed
         // TODO add your handling code here:
-        framework.openSubjectAndGrade();
+        framework.openSubject();
         this.dispose();
     }//GEN-LAST:event_subject_gradeButtonActionPerformed
 
@@ -243,6 +195,7 @@ public class enrollment2 extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        framework.softDeleteRow("ENROLLMENT", enrollmentTable, "student_id");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void Variable_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Variable_buttonActionPerformed
@@ -251,16 +204,21 @@ public class enrollment2 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Variable_buttonActionPerformed
 
-    private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
-        // TODO add your handling code here:
-        framework.openHomepage();
-        this.dispose();
-    }//GEN-LAST:event_Dashboard_buttonActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        framework.editSelectedRow("ENROLLMENT", enrollmentTable, "student_id");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        framework.addNewRow("ENROLLMENT");
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public void clearTable() {
+        model.setRowCount(0);
+    }
+    public void loadTable(String studentId, String studentName, String blockNo, String subjectCode, String subjectTitle, String studentType, Date dateEnrolled, String grade) {
+        model.addRow(new Object[] {studentId, studentName, blockNo, subjectCode, subjectTitle, studentType, dateEnrolled, grade});
+    }
     /**
      * @param args the command line arguments
      */
@@ -287,14 +245,13 @@ public class enrollment2 extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Dashboard_button;
     private javax.swing.JButton Variable_button;
     private javax.swing.JPanel buttons;
     private javax.swing.JButton college_courseButton;
     private javax.swing.JButton enrollmentButton;
+    private javax.swing.JTable enrollmentTable;
     private javax.swing.JPanel footerPanel;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JButton homeButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -302,10 +259,7 @@ public class enrollment2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JLabel rightlogo;
@@ -315,6 +269,5 @@ public class enrollment2 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup status;
     private javax.swing.JButton studentButton;
     private javax.swing.JButton subject_gradeButton;
-    private javax.swing.JPanel tablesPanel;
     // End of variables declaration//GEN-END:variables
 }

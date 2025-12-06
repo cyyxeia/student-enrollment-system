@@ -3,7 +3,6 @@ com\mycompany\student_enrollment_system\mavenproject3\Mavenproject3$1.class
 com\mycompany\student_enrollment_system\collegeandcourses.class
 com\mycompany\student_enrollment_system\homePage.class
 com\mycompany\student_enrollment_system\backend_temporary\sql_statements_ui_temporary$1.class
-com\mycompany\student_enrollment_system\schedule.class
 com\mycompany\student_enrollment_system\backend_temporary\sql_statements_temporary.class
 com\mycompany\student_enrollment_system\mavenproject3\Mavenproject3.class
 com\mycompany\student_enrollment_system\template.class
@@ -18,7 +17,8 @@ com\mycompany\student_enrollment_system\subject_grade$1.class
 com\mycompany\student_enrollment_system\images\LoginPage22.class
 com\mycompany\student_enrollment_system\mavenproject3\Mavenproject3$2.class
 com\mycompany\student_enrollment_system\Framework.class
-com\mycompany\student_enrollment_system\schedule$1.class
+com\mycompany\student_enrollment_system\enrollment2$1.class
+com\mycompany\student_enrollment_system\Framework$1.class
 com\mycompany\student_enrollment_system\template$1.class
 com\mycompany\student_enrollment_system\faculty_profs_employee$1.class
 com\mycompany\student_enrollment_system\Login.class

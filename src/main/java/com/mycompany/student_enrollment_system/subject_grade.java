@@ -4,6 +4,9 @@
  */
 package com.mycompany.student_enrollment_system;
 
+import java.sql.Date;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lenovo x270
@@ -12,9 +15,11 @@ public class subject_grade extends javax.swing.JFrame {
     
 //    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(subject_grade.class.getName());
     private Framework framework;
+    private DefaultTableModel model;
     public subject_grade(Framework framework) {
         this.framework = framework;
         initComponents();
+        model = (DefaultTableModel) subjectTable.getModel();
     }
 
     /**
@@ -25,7 +30,6 @@ public class subject_grade extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         status = new javax.swing.ButtonGroup();
         semester = new javax.swing.ButtonGroup();
@@ -37,15 +41,13 @@ public class subject_grade extends javax.swing.JFrame {
         buttons = new javax.swing.JPanel();
         studentButton = new javax.swing.JButton();
         enrollmentButton = new javax.swing.JButton();
-        homeButton = new javax.swing.JButton();
+        facultyButton = new javax.swing.JButton();
         subject_gradeButton = new javax.swing.JButton();
         college_courseButton = new javax.swing.JButton();
         school_name = new javax.swing.JPanel();
-        home_dashboardButton = new javax.swing.JButton();
         leftlogo = new javax.swing.JLabel();
         schoolName = new javax.swing.JLabel();
         rightlogo = new javax.swing.JLabel();
-        facultyButton = new javax.swing.JButton();
         footerPanel = new javax.swing.JPanel();
         add_modify_deleteButtons = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
@@ -53,11 +55,8 @@ public class subject_grade extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
         TablePanel = new javax.swing.JPanel();
-        table = new javax.swing.JScrollPane();
-        subject_gradeTable = new javax.swing.JTable();
-        summary_panel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        subjectTable = new javax.swing.JTable();
 
         jButton4.setText("jButton4");
 
@@ -82,14 +81,14 @@ public class subject_grade extends javax.swing.JFrame {
         enrollmentButton.addActionListener(this::enrollmentButtonActionPerformed);
         buttons.add(enrollmentButton);
 
-        homeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        homeButton.setText("Schedule");
-        homeButton.addActionListener(this::homeButtonActionPerformed);
-        buttons.add(homeButton);
+        facultyButton.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
+        facultyButton.setText("Faculty");
+        facultyButton.addActionListener(this::facultyButtonActionPerformed);
+        buttons.add(facultyButton);
 
         subject_gradeButton.setBackground(new java.awt.Color(153, 204, 255));
         subject_gradeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        subject_gradeButton.setText("Subject & Grade");
+        subject_gradeButton.setText("Subject");
         subject_gradeButton.addActionListener(this::subject_gradeButtonActionPerformed);
         buttons.add(subject_gradeButton);
 
@@ -103,13 +102,6 @@ public class subject_grade extends javax.swing.JFrame {
         school_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         school_name.setLayout(new java.awt.GridBagLayout());
 
-        home_dashboardButton.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
-        home_dashboardButton.setText("Dashboard");
-        home_dashboardButton.addActionListener(this::home_dashboardButtonActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 130);
-        school_name.add(home_dashboardButton, gridBagConstraints);
-
         leftlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         leftlogo.setText(" ");
         school_name.add(leftlogo, new java.awt.GridBagConstraints());
@@ -121,13 +113,6 @@ public class subject_grade extends javax.swing.JFrame {
         rightlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         rightlogo.setText(" ");
         school_name.add(rightlogo, new java.awt.GridBagConstraints());
-
-        facultyButton.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
-        facultyButton.setText("Faculty");
-        facultyButton.addActionListener(this::facultyButtonActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 130, 0, 0);
-        school_name.add(facultyButton, gridBagConstraints);
 
         headerPanel.add(school_name, java.awt.BorderLayout.CENTER);
 
@@ -142,12 +127,14 @@ public class subject_grade extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton6.setText("ADD");
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton6.addActionListener(this::jButton6ActionPerformed);
         add_modify_deleteButtons.add(jButton6);
 
         jButton7.setBackground(new java.awt.Color(153, 255, 255));
         jButton7.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton7.setText("MODIFY");
         jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton7.addActionListener(this::jButton7ActionPerformed);
         add_modify_deleteButtons.add(jButton7);
 
         jButton8.setBackground(new java.awt.Color(255, 0, 0));
@@ -166,58 +153,40 @@ public class subject_grade extends javax.swing.JFrame {
 
         TablePanel.setLayout(new java.awt.BorderLayout());
 
-        subject_gradeTable.setAutoCreateRowSorter(true);
-        subject_gradeTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        subject_gradeTable.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        subject_gradeTable.setModel(new javax.swing.table.DefaultTableModel(
+        subjectTable.setAutoCreateRowSorter(true);
+        subjectTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        subjectTable.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        subjectTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"IPP 0010", "Interdisiplinaryong Pagbasa at Pagsulat Tungo sa Mabisang Pagpapahayag", "2", "CISTM", "Alvin Genota", "2024-2025", "1st", "1.00"}
+                {"IPP 0010", "Interdisiplinaryong Pagbasa at Pagsulat Tungo sa Mabisang Pagpapahayag", "2", "CISTM", null, "Alvin Genota", "2024-2025", "1st", null, null, null, null, null, null, null}
             },
             new String [] {
-                "Subject Code", "Subject Title", "Units", "College Code", "Professor", "School Year", "Semester", "Final Grade"
+                "Subject Code", "Subject Title", "Units", "College Code", "Professor ID", "Professor", "School Year", "Semester", "Day Schedule", "Start Time", "End TIme", "Room No", "Status", "Date Started", "Date Closed"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        subject_gradeTable.setCellSelectionEnabled(true);
-        subject_gradeTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        subject_gradeTable.setPreferredSize(new java.awt.Dimension(1000, 800));
-        subject_gradeTable.setShowGrid(true);
-        subject_gradeTable.setSurrendersFocusOnKeystroke(true);
-        table.setViewportView(subject_gradeTable);
-        if (subject_gradeTable.getColumnModel().getColumnCount() > 0) {
-            subject_gradeTable.getColumnModel().getColumn(1).setPreferredWidth(500);
-            subject_gradeTable.getColumnModel().getColumn(2).setPreferredWidth(-20);
-            subject_gradeTable.getColumnModel().getColumn(6).setPreferredWidth(35);
-            subject_gradeTable.getColumnModel().getColumn(7).setPreferredWidth(60);
+        subjectTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        subjectTable.setPreferredSize(new java.awt.Dimension(1000, 800));
+        subjectTable.setShowGrid(true);
+        subjectTable.setSurrendersFocusOnKeystroke(true);
+        jScrollPane1.setViewportView(subjectTable);
+        if (subjectTable.getColumnModel().getColumnCount() > 0) {
+            subjectTable.getColumnModel().getColumn(1).setPreferredWidth(500);
+            subjectTable.getColumnModel().getColumn(2).setPreferredWidth(50);
+            subjectTable.getColumnModel().getColumn(5).setPreferredWidth(120);
+            subjectTable.getColumnModel().getColumn(7).setPreferredWidth(35);
+            subjectTable.getColumnModel().getColumn(11).setPreferredWidth(70);
+            subjectTable.getColumnModel().getColumn(12).setPreferredWidth(30);
         }
 
-        TablePanel.add(table, java.awt.BorderLayout.CENTER);
-
-        summary_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        summary_panel.setLayout(new java.awt.GridBagLayout());
-
-        jLabel1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jLabel1.setText("Semester GWA:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        summary_panel.add(jLabel1, gridBagConstraints);
-
-        jLabel2.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jLabel2.setText("1.1304");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        summary_panel.add(jLabel2, gridBagConstraints);
-
-        TablePanel.add(summary_panel, java.awt.BorderLayout.PAGE_END);
+        TablePanel.add(jScrollPane1, java.awt.BorderLayout.PAGE_START);
 
         mainContentPanel.add(TablePanel, java.awt.BorderLayout.CENTER);
 
@@ -225,12 +194,6 @@ public class subject_grade extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
-        framework.openSchedule();
-        this.dispose();
-    }//GEN-LAST:event_homeButtonActionPerformed
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
         // TODO add your handling code here:
@@ -248,12 +211,6 @@ public class subject_grade extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_college_courseButtonActionPerformed
 
-    private void home_dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_dashboardButtonActionPerformed
-        // TODO add your handling code here:
-        framework.openHomepage();
-        this.dispose();
-    }//GEN-LAST:event_home_dashboardButtonActionPerformed
-
     private void facultyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facultyButtonActionPerformed
         // TODO add your handling code here:
         framework.openFaculty();
@@ -262,6 +219,7 @@ public class subject_grade extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        framework.softDeleteRow("SUBJECT", subjectTable, "subject_code");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void enrollmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollmentButtonActionPerformed
@@ -270,6 +228,22 @@ public class subject_grade extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_enrollmentButtonActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        framework.addNewRow("SUBJECT");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        framework.editSelectedRow("SUBJECT", subjectTable, "subject_code");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    public void clearTable() {
+        model.setRowCount(0);
+    }
+    public void loadTable(String code, String title, String unit, String codeCol, String empid, String empname, String year, String sem, String daysched, String start, String end, String room, String status, Date startdate, Date enddate) {
+        model.addRow(new Object[] {code, title, unit, codeCol, empid, empname, year, sem, daysched, start, end, room, status, startdate, enddate});
+    }
     /**
      * @param args the command line arguments
      */
@@ -304,17 +278,14 @@ public class subject_grade extends javax.swing.JFrame {
     private javax.swing.JButton facultyButton;
     private javax.swing.JPanel footerPanel;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JButton homeButton;
-    private javax.swing.JButton home_dashboardButton;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JLabel rightlogo;
@@ -323,9 +294,7 @@ public class subject_grade extends javax.swing.JFrame {
     private javax.swing.ButtonGroup semester;
     private javax.swing.ButtonGroup status;
     private javax.swing.JButton studentButton;
+    private javax.swing.JTable subjectTable;
     private javax.swing.JButton subject_gradeButton;
-    private javax.swing.JTable subject_gradeTable;
-    private javax.swing.JPanel summary_panel;
-    private javax.swing.JScrollPane table;
     // End of variables declaration//GEN-END:variables
 }

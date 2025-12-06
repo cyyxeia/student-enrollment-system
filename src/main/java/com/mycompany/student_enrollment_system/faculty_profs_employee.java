@@ -28,7 +28,6 @@ public class faculty_profs_employee extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         status = new javax.swing.ButtonGroup();
         semester = new javax.swing.ButtonGroup();
@@ -40,15 +39,13 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         buttons = new javax.swing.JPanel();
         studentButton = new javax.swing.JButton();
         enrollmentButton = new javax.swing.JButton();
-        homeButton = new javax.swing.JButton();
+        facultyButton = new javax.swing.JButton();
         subject_gradeButton = new javax.swing.JButton();
         college_courseButton = new javax.swing.JButton();
         school_name = new javax.swing.JPanel();
-        home_dashboardButton = new javax.swing.JButton();
         leftlogo = new javax.swing.JLabel();
         schoolName = new javax.swing.JLabel();
         rightlogo = new javax.swing.JLabel();
-        facultyButton = new javax.swing.JButton();
         footerPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -81,13 +78,14 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         enrollmentButton.addActionListener(this::enrollmentButtonActionPerformed);
         buttons.add(enrollmentButton);
 
-        homeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        homeButton.setText("Schedule");
-        homeButton.addActionListener(this::homeButtonActionPerformed);
-        buttons.add(homeButton);
+        facultyButton.setBackground(new java.awt.Color(153, 204, 255));
+        facultyButton.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
+        facultyButton.setText("Faculty");
+        facultyButton.addActionListener(this::facultyButtonActionPerformed);
+        buttons.add(facultyButton);
 
         subject_gradeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        subject_gradeButton.setText("Subject & Grade");
+        subject_gradeButton.setText("Subject");
         subject_gradeButton.addActionListener(this::subject_gradeButtonActionPerformed);
         buttons.add(subject_gradeButton);
 
@@ -101,13 +99,6 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         school_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         school_name.setLayout(new java.awt.GridBagLayout());
 
-        home_dashboardButton.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
-        home_dashboardButton.setText("Dashboard");
-        home_dashboardButton.addActionListener(this::home_dashboardButtonActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 130);
-        school_name.add(home_dashboardButton, gridBagConstraints);
-
         leftlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         leftlogo.setText(" ");
         school_name.add(leftlogo, new java.awt.GridBagConstraints());
@@ -119,14 +110,6 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         rightlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         rightlogo.setText(" ");
         school_name.add(rightlogo, new java.awt.GridBagConstraints());
-
-        facultyButton.setBackground(new java.awt.Color(153, 204, 255));
-        facultyButton.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
-        facultyButton.setText("Faculty");
-        facultyButton.addActionListener(this::facultyButtonActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 130, 0, 0);
-        school_name.add(facultyButton, gridBagConstraints);
 
         headerPanel.add(school_name, java.awt.BorderLayout.CENTER);
 
@@ -146,6 +129,7 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton2.setText("MODIFY");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton2.addActionListener(this::jButton2ActionPerformed);
         footerPanel.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
@@ -167,21 +151,20 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         empTable.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         empTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"EMP 004", "SALGADO, Shirley", "CHASS", "F", "11/24/1989"}
+                {"EMP 004", "SALGADO, Shirley", "11/24/1989", "F"}
             },
             new String [] {
-                "Professor ID", "Professor Name", "College Department", "Gender", "Birthday"
+                "Professor ID", "Professor Name", "Birthday", "Sex"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        empTable.setCellSelectionEnabled(true);
         empTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         empTable.setDragEnabled(true);
         empTable.setPreferredSize(new java.awt.Dimension(1000, 800));
@@ -201,12 +184,6 @@ public class faculty_profs_employee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
-        framework.openSchedule();
-        this.dispose();
-    }//GEN-LAST:event_homeButtonActionPerformed
-
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
         // TODO add your handling code here:
         framework.openStudent();
@@ -215,7 +192,7 @@ public class faculty_profs_employee extends javax.swing.JFrame {
 
     private void subject_gradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subject_gradeButtonActionPerformed
         // TODO add your handling code here:
-        framework.openSubjectAndGrade();
+        framework.openSubject();
         this.dispose();
     }//GEN-LAST:event_subject_gradeButtonActionPerformed
 
@@ -227,13 +204,8 @@ public class faculty_profs_employee extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        framework.softDeleteRow("EMPLOYEE", empTable, "employee_id");
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void home_dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_dashboardButtonActionPerformed
-        // TODO add your handling code here:
-        framework.openHomepage();
-        this.dispose();
-    }//GEN-LAST:event_home_dashboardButtonActionPerformed
 
     private void facultyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facultyButtonActionPerformed
         // TODO add your handling code here:
@@ -249,15 +221,19 @@ public class faculty_profs_employee extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        framework.addNewRow("Employee");
+        framework.addNewRow("EMPLOYEE");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        framework.editSelectedRow("EMPLOYEE", empTable, "employee_id");
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     public void clearTable() {
-        model = (DefaultTableModel) empTable.getModel();
         model.setRowCount(0);
     }
-    public void loadTable(String id, String name, String college, String gender, Date birthday) {
-        model.addRow(new Object[] {id, name, college, gender, birthday});
+    public void loadTable(String id, String name, Date birthday, String gender) {
+        model.addRow(new Object[] {id, name, birthday, gender});
     }
     /**
      * @param args the command line arguments
@@ -294,8 +270,6 @@ public class faculty_profs_employee extends javax.swing.JFrame {
     private javax.swing.JScrollPane firstTable;
     private javax.swing.JPanel footerPanel;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JButton homeButton;
-    private javax.swing.JButton home_dashboardButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

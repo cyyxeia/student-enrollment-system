@@ -4,6 +4,9 @@
  */
 package com.mycompany.student_enrollment_system;
 
+import java.sql.Date;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lenovo x270
@@ -12,9 +15,11 @@ public class studentdashboard extends javax.swing.JFrame {
     
 //    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(studentdashboard.class.getName());
     private Framework framework;
+    private DefaultTableModel model;
     public studentdashboard(Framework framework) {
         this.framework = framework;
         initComponents();
+        model = (DefaultTableModel) studentTable.getModel();
     }
 
     /**
@@ -25,7 +30,6 @@ public class studentdashboard extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         status = new javax.swing.ButtonGroup();
         semester = new javax.swing.ButtonGroup();
@@ -35,45 +39,18 @@ public class studentdashboard extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         school_name = new javax.swing.JPanel();
-        Dashboard_button = new javax.swing.JButton();
         leftlogo = new javax.swing.JLabel();
         schoolName = new javax.swing.JLabel();
         rightlogo = new javax.swing.JLabel();
-        Variable_button = new javax.swing.JButton();
         buttons = new javax.swing.JPanel();
         studentButton = new javax.swing.JButton();
         enrollmentButton = new javax.swing.JButton();
-        homeButton = new javax.swing.JButton();
+        Variable_button = new javax.swing.JButton();
         subject_gradeButton = new javax.swing.JButton();
         college_courseButton = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
-        studentData = new javax.swing.JPanel();
-        studentidlabel = new javax.swing.JLabel();
-        studentnamelabel = new javax.swing.JLabel();
-        programlabel = new javax.swing.JLabel();
-        collegelabel = new javax.swing.JLabel();
-        emaillabel = new javax.swing.JLabel();
-        dateofbirthlabel = new javax.swing.JLabel();
-        placeofbirthlabel = new javax.swing.JLabel();
-        contactnolabel = new javax.swing.JLabel();
-        genderlabel = new javax.swing.JLabel();
-        nationalitylabel = new javax.swing.JLabel();
-        disabilitylabel = new javax.swing.JLabel();
-        addresslabel = new javax.swing.JLabel();
-        IGNORE = new javax.swing.JLabel();
-        IGNORE2 = new javax.swing.JLabel();
-        actualstudentid = new javax.swing.JLabel();
-        actualstudentname = new javax.swing.JLabel();
-        actualprogram = new javax.swing.JLabel();
-        actualcollege = new javax.swing.JLabel();
-        actualemail = new javax.swing.JLabel();
-        actualbday = new javax.swing.JLabel();
-        actualplaceofbirth = new javax.swing.JLabel();
-        actualcontactno = new javax.swing.JLabel();
-        actualgender = new javax.swing.JLabel();
-        actualnationality = new javax.swing.JLabel();
-        actualdisability = new javax.swing.JLabel();
-        actualaddress = new javax.swing.JLabel();
+        table = new javax.swing.JScrollPane();
+        studentTable = new javax.swing.JTable();
         footerPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -93,13 +70,6 @@ public class studentdashboard extends javax.swing.JFrame {
         school_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         school_name.setLayout(new java.awt.GridBagLayout());
 
-        Dashboard_button.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
-        Dashboard_button.setText("Dashboard");
-        Dashboard_button.addActionListener(this::Dashboard_buttonActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 130);
-        school_name.add(Dashboard_button, gridBagConstraints);
-
         leftlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         leftlogo.setText(" ");
         school_name.add(leftlogo, new java.awt.GridBagConstraints());
@@ -111,13 +81,6 @@ public class studentdashboard extends javax.swing.JFrame {
         rightlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
         rightlogo.setText(" ");
         school_name.add(rightlogo, new java.awt.GridBagConstraints());
-
-        Variable_button.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
-        Variable_button.setText("Faculty");
-        Variable_button.addActionListener(this::Variable_buttonActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 130, 0, 0);
-        school_name.add(Variable_button, gridBagConstraints);
 
         headerPanel.add(school_name, java.awt.BorderLayout.CENTER);
 
@@ -134,13 +97,13 @@ public class studentdashboard extends javax.swing.JFrame {
         enrollmentButton.addActionListener(this::enrollmentButtonActionPerformed);
         buttons.add(enrollmentButton);
 
-        homeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        homeButton.setText("Schedule");
-        homeButton.addActionListener(this::homeButtonActionPerformed);
-        buttons.add(homeButton);
+        Variable_button.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
+        Variable_button.setText("Faculty");
+        Variable_button.addActionListener(this::Variable_buttonActionPerformed);
+        buttons.add(Variable_button);
 
         subject_gradeButton.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        subject_gradeButton.setText("Subject & Grade");
+        subject_gradeButton.setText("Subject");
         subject_gradeButton.addActionListener(this::subject_gradeButtonActionPerformed);
         buttons.add(subject_gradeButton);
 
@@ -157,240 +120,24 @@ public class studentdashboard extends javax.swing.JFrame {
         mainContentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         mainContentPanel.setLayout(new javax.swing.BoxLayout(mainContentPanel, javax.swing.BoxLayout.LINE_AXIS));
 
-        studentData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        studentData.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        studentData.setLayout(new java.awt.GridBagLayout());
+        studentTable.setAutoCreateRowSorter(true);
+        studentTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        studentTable.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        studentTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Student ID", "Name", "Email Address", "Birthday", "Place of Birth", "Contact No", "Sex", "Nationality", "Civil Status", "Disability", "Address"
+            }
+        ));
+        studentTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        studentTable.setPreferredSize(new java.awt.Dimension(1000, 800));
+        studentTable.setShowGrid(true);
+        studentTable.setSurrendersFocusOnKeystroke(true);
+        table.setViewportView(studentTable);
 
-        studentidlabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        studentidlabel.setText("Student ID:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 25);
-        studentData.add(studentidlabel, gridBagConstraints);
-
-        studentnamelabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        studentnamelabel.setText("Student Name:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(studentnamelabel, gridBagConstraints);
-
-        programlabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        programlabel.setText("Program:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(programlabel, gridBagConstraints);
-
-        collegelabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        collegelabel.setText("College:");
-        collegelabel.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(collegelabel, gridBagConstraints);
-
-        emaillabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        emaillabel.setText("Email:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(emaillabel, gridBagConstraints);
-
-        dateofbirthlabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        dateofbirthlabel.setText("Date of birth:");
-        dateofbirthlabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(dateofbirthlabel, gridBagConstraints);
-
-        placeofbirthlabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        placeofbirthlabel.setText("Place of birth:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(placeofbirthlabel, gridBagConstraints);
-
-        contactnolabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        contactnolabel.setText("Contact Number:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(contactnolabel, gridBagConstraints);
-
-        genderlabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        genderlabel.setText("Gender:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(genderlabel, gridBagConstraints);
-
-        nationalitylabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        nationalitylabel.setText("Nationality:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(nationalitylabel, gridBagConstraints);
-
-        disabilitylabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        disabilitylabel.setText("Disability:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(disabilitylabel, gridBagConstraints);
-
-        addresslabel.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        addresslabel.setText("Address:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(addresslabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
-        studentData.add(IGNORE, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
-        studentData.add(IGNORE2, gridBagConstraints);
-
-        actualstudentid.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
-        actualstudentid.setText("202410508");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
-        studentData.add(actualstudentid, gridBagConstraints);
-
-        actualstudentname.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualstudentname.setText("Cyrus Kent B. De Guzman");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualstudentname, gridBagConstraints);
-
-        actualprogram.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualprogram.setText("BSCS");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualprogram, gridBagConstraints);
-
-        actualcollege.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualcollege.setText("CISTM");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualcollege, gridBagConstraints);
-
-        actualemail.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualemail.setText("troilimin34@gmail.com");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualemail, gridBagConstraints);
-
-        actualbday.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualbday.setText("12-10-2005");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualbday, gridBagConstraints);
-
-        actualplaceofbirth.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualplaceofbirth.setText("Manila");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualplaceofbirth, gridBagConstraints);
-
-        actualcontactno.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualcontactno.setText("09202468030");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualcontactno, gridBagConstraints);
-
-        actualgender.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualgender.setText("Male");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualgender, gridBagConstraints);
-
-        actualnationality.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualnationality.setText("Filipino");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualnationality, gridBagConstraints);
-
-        actualdisability.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualdisability.setText("None");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualdisability, gridBagConstraints);
-
-        actualaddress.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        actualaddress.setText("Permanent Housing Building 3 Unit 112, Balut, Tondo, Manila");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 30, 0);
-        studentData.add(actualaddress, gridBagConstraints);
-
-        mainContentPanel.add(studentData);
+        mainContentPanel.add(table);
 
         getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
 
@@ -400,6 +147,7 @@ public class studentdashboard extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jButton1.setText("ADD");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addActionListener(this::jButton1ActionPerformed);
         footerPanel.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
@@ -421,19 +169,13 @@ public class studentdashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
-        framework.openSchedule();
-        this.dispose();
-    }//GEN-LAST:event_homeButtonActionPerformed
-
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_studentButtonActionPerformed
 
     private void subject_gradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subject_gradeButtonActionPerformed
         // TODO add your handling code here:
-        framework.openSubjectAndGrade();
+        framework.openSubject();
         this.dispose();
     }//GEN-LAST:event_subject_gradeButtonActionPerformed
 
@@ -445,6 +187,7 @@ public class studentdashboard extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        framework.softDeleteRow("STUDENT", studentTable, "student_id");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void Variable_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Variable_buttonActionPerformed
@@ -453,14 +196,9 @@ public class studentdashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Variable_buttonActionPerformed
 
-    private void Dashboard_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard_buttonActionPerformed
-        // TODO add your handling code here:
-        framework.openHomepage();
-        this.dispose();
-    }//GEN-LAST:event_Dashboard_buttonActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        framework.editSelectedRow("STUDENT", studentTable, "student_id");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void enrollmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollmentButtonActionPerformed
@@ -469,6 +207,18 @@ public class studentdashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_enrollmentButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        framework.addNewRow("STUDENT");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
+    public void clearTable() {
+        model.setRowCount(0);
+    }
+    public void loadTable(String id, String name, String email, Date birthday, String pob, String contact, String sex, String nationality, String civil, String disability, String address) {
+        model.addRow(new Object[] {id, name, email, birthday, pob, contact, sex, nationality, civil, disability, address});
+    }
     /**
      * @param args the command line arguments
      */
@@ -495,35 +245,12 @@ public class studentdashboard extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Dashboard_button;
-    private javax.swing.JLabel IGNORE;
-    private javax.swing.JLabel IGNORE2;
     private javax.swing.JButton Variable_button;
-    private javax.swing.JLabel actualaddress;
-    private javax.swing.JLabel actualbday;
-    private javax.swing.JLabel actualcollege;
-    private javax.swing.JLabel actualcontactno;
-    private javax.swing.JLabel actualdisability;
-    private javax.swing.JLabel actualemail;
-    private javax.swing.JLabel actualgender;
-    private javax.swing.JLabel actualnationality;
-    private javax.swing.JLabel actualplaceofbirth;
-    private javax.swing.JLabel actualprogram;
-    private javax.swing.JLabel actualstudentid;
-    private javax.swing.JLabel actualstudentname;
-    private javax.swing.JLabel addresslabel;
     private javax.swing.JPanel buttons;
     private javax.swing.JButton college_courseButton;
-    private javax.swing.JLabel collegelabel;
-    private javax.swing.JLabel contactnolabel;
-    private javax.swing.JLabel dateofbirthlabel;
-    private javax.swing.JLabel disabilitylabel;
-    private javax.swing.JLabel emaillabel;
     private javax.swing.JButton enrollmentButton;
     private javax.swing.JPanel footerPanel;
-    private javax.swing.JLabel genderlabel;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JButton homeButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -533,18 +260,14 @@ public class studentdashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel leftlogo;
     private javax.swing.JPanel mainContentPanel;
-    private javax.swing.JLabel nationalitylabel;
-    private javax.swing.JLabel placeofbirthlabel;
-    private javax.swing.JLabel programlabel;
     private javax.swing.JLabel rightlogo;
     private javax.swing.JLabel schoolName;
     private javax.swing.JPanel school_name;
     private javax.swing.ButtonGroup semester;
     private javax.swing.ButtonGroup status;
     private javax.swing.JButton studentButton;
-    private javax.swing.JPanel studentData;
-    private javax.swing.JLabel studentidlabel;
-    private javax.swing.JLabel studentnamelabel;
+    private javax.swing.JTable studentTable;
     private javax.swing.JButton subject_gradeButton;
+    private javax.swing.JScrollPane table;
     // End of variables declaration//GEN-END:variables
 }
