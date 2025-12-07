@@ -66,7 +66,7 @@ public class Subject extends javax.swing.JFrame {
         headerHead.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         headerHead.setLayout(new java.awt.GridBagLayout());
 
-        leftlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
+        leftlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmSmallLogo.png"))); // NOI18N
         leftlogo.setText(" ");
         headerHead.add(leftlogo, new java.awt.GridBagConstraints());
 
@@ -74,7 +74,7 @@ public class Subject extends javax.swing.JFrame {
         schoolName.setText("PAMANTASAN NG LUNGSOD NG MAYNILA");
         headerHead.add(schoolName, new java.awt.GridBagConstraints());
 
-        rightlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
+        rightlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmSmallLogo.png"))); // NOI18N
         rightlogo.setText(" ");
         headerHead.add(rightlogo, new java.awt.GridBagConstraints());
 

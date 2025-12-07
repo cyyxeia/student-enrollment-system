@@ -79,7 +79,7 @@ public class CollegeCourse extends javax.swing.JFrame {
         headerHead.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         headerHead.setLayout(new java.awt.GridBagLayout());
 
-        headerLogoLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
+        headerLogoLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmSmallLogo.png"))); // NOI18N
         headerLogoLeft.setText(" ");
         headerHead.add(headerLogoLeft, new java.awt.GridBagConstraints());
 
@@ -87,7 +87,7 @@ public class CollegeCourse extends javax.swing.JFrame {
         headerTitle.setText("PAMANTASAN NG LUNGSOD NG MAYNILA");
         headerHead.add(headerTitle, new java.awt.GridBagConstraints());
 
-        headerLogoRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"))); // NOI18N
+        headerLogoRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmSmallLogo.png"))); // NOI18N
         headerLogoRight.setText(" ");
         headerHead.add(headerLogoRight, new java.awt.GridBagConstraints());
 

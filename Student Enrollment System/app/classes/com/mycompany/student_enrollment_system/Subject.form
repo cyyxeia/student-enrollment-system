@@ -91,7 +91,7 @@
             <Component class="javax.swing.JLabel" name="leftlogo">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"/>
+                  <Image iconType="3" name="/com/mycompany/student_enrollment_system/images/plmSmallLogo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=" "/>
               </Properties>
@@ -117,7 +117,7 @@
             <Component class="javax.swing.JLabel" name="rightlogo">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"/>
+                  <Image iconType="3" name="/com/mycompany/student_enrollment_system/images/plmSmallLogo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=" "/>
               </Properties>
