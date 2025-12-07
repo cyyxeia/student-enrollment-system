@@ -18,7 +18,6 @@ public class CollegeCourse extends javax.swing.JFrame {
     private Framework framework;
     private DefaultTableModel modelCollege;
     private DefaultTableModel modelCourse;
-    ImageIcon JOPIcon = new ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"));
     
     public CollegeCourse(Framework framework) {
         this.framework = framework;
@@ -281,7 +280,7 @@ public class CollegeCourse extends javax.swing.JFrame {
                 "College and Course",              // title
                 JOptionPane.YES_NO_OPTION,     // option type
                 JOptionPane.QUESTION_MESSAGE,  // message type
-                JOPIcon,                        // your ImageIcon
+                framework.JOPIcon,                        // your ImageIcon
                 options,                       // button texts
                 options[0]                     // default button
         );
