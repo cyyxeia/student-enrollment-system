@@ -3,8 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>im.final_project.student_enrollment_system</groupId>
     <artifactId>Student_Enrollment_System</artifactId>
-    <version>20251207.0118</version>
+    <version>20251207</version>
     <packaging>jar</packaging>
+    <name>Student Enrollment System</name>
+    <description>Add, Modify, and Delete data from a school oracle-based database.</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>21</maven.compiler.release>
+        <exec.mainClass>com.mycompany.student_enrollment_system.Student_Enrollment_System</exec.mainClass>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.netbeans.external</groupId>
@@ -28,12 +35,39 @@
                 <directory>src/main/java</directory>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.mycompany.student_enrollment_system.Student_Enrollment_System</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>25</maven.compiler.release>
-        <exec.mainClass>com.mycompany.student_enrollment_system.Student_Enrollment_System</exec.mainClass>
-    </properties>
-    <name>Student Enrollment System</name>
-    <description>Add, Modify, and Delete data from a school oracle-based database.</description>
 </project>

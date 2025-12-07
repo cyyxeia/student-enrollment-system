@@ -22,7 +22,7 @@ public class Framework {
     private String accountUsername;
     private String accountPassword; //I know it's unsafe, ignore
     private String accountLevel;
-    ImageIcon JOPIcon = new ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmsmalllogo.png"));
+    ImageIcon JOPIcon = new ImageIcon(getClass().getResource("/com/mycompany/student_enrollment_system/images/plmSmallLogo.png"));
 
     public void startDatabaseConnection(String connectionUrl, String connectionUsername, String connectionPassword) {
         try {connection = DriverManager.getConnection(connectionUrl, connectionUsername, connectionPassword);
